@@ -1,4 +1,4 @@
-### City'In Android Application
+# City'In Android Application
 
 ## What is City'In
 
