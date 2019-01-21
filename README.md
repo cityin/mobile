@@ -13,7 +13,7 @@ The team is composed by four HETIC students, three developers and one designers.
 Use the git clone command in your terminal :
 
 ``
-git clone git@github.com:cityin/mobile.git
+git clone git@github.com:spottertrip/mobile.git
 ``
 
 
