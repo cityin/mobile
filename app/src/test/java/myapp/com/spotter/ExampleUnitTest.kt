@@ -1,4 +1,4 @@
-package myapp.com.cityin
+package myapp.com.spotter
 
 import org.junit.Test
 

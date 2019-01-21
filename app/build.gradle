@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "myapp.com.cityin"
+        applicationId "myapp.com.spotter"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

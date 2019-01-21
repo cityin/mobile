@@ -1,4 +1,4 @@
-package myapp.com.cityin
+package myapp.com.spotter
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
