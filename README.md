@@ -1,8 +1,8 @@
-# City'In Android Application
+# Spotter Android Application
 
 ## What is City'In
 
-City'In is simply a place where tourists can meet local guides to share a moment or an activity during their trip.
+Spotter is simply a place where tourists can meet local guides to share a moment or an activity during their trip.
 
 ## Team
 
