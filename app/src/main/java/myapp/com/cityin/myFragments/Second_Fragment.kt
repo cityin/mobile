@@ -1,4 +1,4 @@
-package myapp.com.cityin.myFragments
+package myapp.com.spotter.myFragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
