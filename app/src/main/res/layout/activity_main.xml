@@ -8,14 +8,12 @@
 
     <fragment
         android:id="@+id/first_frg"
-        android:name=".FirstFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
     <fragment
         android:id="@+id/second_frg"
-        android:name=".SecondFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2" />

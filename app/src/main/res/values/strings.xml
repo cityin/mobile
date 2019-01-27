@@ -1,10 +1,4 @@
 <resources>
-<<<<<<< HEAD
-    <string name="app_name">City\'In</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-=======
     <string name="app_name">Spotter</string>
->>>>>>> 71f4488b25e62b532f35ca1365199d35c8674231
 </resources>
