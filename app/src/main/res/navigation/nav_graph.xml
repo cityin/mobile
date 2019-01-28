@@ -3,16 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
-
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="myapp.com.spotter.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
-    <activity
-        android:id="@+id/listActivity"
-        android:name="myapp.com.spotter.ListActivity"
-        android:label="activity_list"
-        tools:layout="@layout/activity_list" />
+    app:startDestination="@id/activityList">
+    <fragment
+        android:id="@+id/activityList"
+        android:name="myapp.com.spotter.ActivityList"
+        android:label="ActivityList" />
 </navigation>
