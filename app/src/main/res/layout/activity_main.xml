@@ -6,47 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <fragment
-        android:id="@+id/first_frg"
-        android:name=".FirstFragment"
-        android:layout_width="0dp"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp">
 
-    <fragment
-        android:id="@+id/second_frg"
-        android:name=".SecondFragment"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2" />
-
-    <!--<EditText
-        android:hint="E-mail"
-        android:layout_height="50dp"
-        android:layout_width="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:id="@+id/emailEditText"
-        />
-
-    <EditText
-        android:hint="Mot de passe"
-        android:layout_width="200dp"
-        android:inputType="textPassword"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:id="@+id/passwordEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/emailEditText"/>
-
-    <Button
-        android:text="Valider"
-        android:id="@+id/buttonLogin"
-        android:layout_height="50dp"
-        android:layout_width="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/passwordEditText"/>-->
-
-
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigationView"
+            style="@style/Widget.Design.BottomNavigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:itemBackground="@android:color/background_light"
+            app:itemIconTint="@android:color/background_dark"
+            app:itemTextColor="@android:color/background_dark"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:menu="@menu/navigation" />
+    </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
