@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,12 +30,30 @@ class ActivityList : Fragment() {
 //    private var param1: String? = null
 //    private var param2: String? = null
 //    private var listener: OnFragmentInteractionListener? = null
+//    private lateinit var recyclerView = RecyclerView
+//    private lateinit var viewAdapter = RecyclerView.Adapter<*>
+//    private lateinit var viewManager = RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        arguments?.let {
 //            param1 = it.getString(ARG_PARAM1)
 //            param2 = it.getString(ARG_PARAM2)
+//        }
+//        viewManager = LinearLayoutManager(this)
+//        viewAdapter = MyAdapter(myDataset)
+//
+//        recyclerView = findViewById<RecyclerView>(R.id.listActivityRecyclerView).apply {
+//            // use this setting to improve performance if you know that changes
+//            // in content do not change the layout size of the RecyclerView
+//            setHasFixedSize(true)
+//
+//            // use a linear layout manager
+//            layoutManager = viewManager
+//
+//            // specify an viewAdapter (see also next example)
+//            adapter = viewAdapter
+//
 //        }
     }
 
