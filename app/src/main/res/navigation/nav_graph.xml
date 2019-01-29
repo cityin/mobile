@@ -3,9 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/activityList">
+    app:startDestination="@+id/mainFragment">
     <fragment
-        android:id="@+id/activityList"
-        android:name="myapp.com.spotter.ActivityList"
-        android:label="ActivityList" />
+        android:id="@+id/mainFragment"
+        android:name="myapp.com.spotter.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_activitiesFragment"
+            app:destination="@id/activitiesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_suggestionsFragment"
+            app:destination="@id/suggestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activitiesFragment"
+        android:name="myapp.com.spotter.ActivitiesFragment"
+        android:label="fragment_activities"
+        tools:layout="@layout/fragment_activities" />
+    <fragment
+        android:id="@+id/suggestionsFragment"
+        android:name="myapp.com.spotter.SuggestionsFragment"
+        android:label="fragment_suggestions"
+        tools:layout="@layout/fragment_suggestions" />
 </navigation>
