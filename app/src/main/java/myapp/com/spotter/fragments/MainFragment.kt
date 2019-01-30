@@ -1,4 +1,4 @@
-package myapp.com.spotter
+package myapp.com.spotter.fragments
 
 
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_main.*
+import myapp.com.spotter.adapter.MainAdapter
+import myapp.com.spotter.R
+import myapp.com.spotter.network.ActivitiesService
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,6 +34,12 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         mainFragmentRecyclerView.layoutManager = LinearLayoutManager(context)
-        mainFragmentRecyclerView.adapter = MainAdapter()
+
+        ActivitiesService.getActivities({
+            activities -> activities.size
+            mainFragmentRecyclerView.adapter = MainAdapter(activities)
+        }, {
+
+        })
     }
 }

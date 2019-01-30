@@ -6,7 +6,7 @@
     app:startDestination="@+id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="myapp.com.spotter.MainFragment"
+        android:name="myapp.com.spotter.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/activitiesFragment"
-        android:name="myapp.com.spotter.ActivitiesFragment"
+        android:name="myapp.com.spotter.fragments.ActivitiesFragment"
         android:label="fragment_activities"
         tools:layout="@layout/fragment_activities" />
     <fragment
         android:id="@+id/suggestionsFragment"
-        android:name="myapp.com.spotter.SuggestionsFragment"
+        android:name="myapp.com.spotter.fragments.SuggestionsFragment"
         android:label="fragment_suggestions"
         tools:layout="@layout/fragment_suggestions" />
 </navigation>
