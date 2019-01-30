@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/discover_icon"
-            android:icon="@drawable/ic_search_black"
-            android:title="@string/discover"
-        />
+        android:id="@+id/discover_icon"
+        android:icon="@drawable/ic_search_black"
+        android:title="@string/discover" />
     <item
-            android:id="@+id/whishlist_icon"
-            android:icon="@drawable/ic_favorite_border_black"
-            android:title="@string/whishlist"
-        />
+        android:id="@+id/whishlist_icon"
+        android:icon="@drawable/ic_favorite_border_black"
+        android:title="@string/whishlist" />
     <item
-            android:id="@+id/group_icon"
-            android:icon="@drawable/ic_people_black"
-            android:title="@string/group"
-        />
+        android:id="@+id/group_icon"
+        android:icon="@drawable/ic_people_black"
+        android:title="@string/group" />
     <item
-            android:id="@+id/profil_icon"
-            android:icon="@drawable/ic_perm_identity_black"
-            android:title="@string/profil"
-        />
+        android:id="@+id/profil_icon"
+        android:icon="@drawable/ic_perm_identity_black"
+        android:title="@string/profil" />
 </menu>
