@@ -3,13 +3,11 @@ package myapp.com.spotter.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.card_layout.view.*
 import myapp.com.spotter.R
 import myapp.com.spotter.network.response.Activity
-import myapp.com.spotter.network.response.ResultActivities
 
 class MainAdapter(val activities: List<Activity>): RecyclerView.Adapter<CustomViewHolder>() {
     
@@ -41,4 +39,4 @@ class MainAdapter(val activities: List<Activity>): RecyclerView.Adapter<CustomVi
     }
 }
 
-class CustomViewHolder(v: View): RecyclerView.ViewHolder(v) {}
+class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view) {}
