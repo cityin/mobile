@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">City\'In</string>
+    <string name="app_name">Spotter</string>
+    <string name="title_search">Découvrir</string>
+    <string name="title_favorite">Whishlist</string>
+    <string name="title_people">Groupes</string>
+    <string name="title_user">Profil</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_test">testActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import myapp.com.cityin.R
 
-class HomeFragment : Fragment() {
+class SearchFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)

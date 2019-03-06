@@ -2,33 +2,34 @@ package myapp.com.cityin
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.activity_home.*
 import myapp.com.cityin.fragment.FavoriteFragment
 import myapp.com.cityin.fragment.PeopleFragment
 import myapp.com.cityin.fragment.SearchFragment
 import myapp.com.cityin.fragment.UserFragment
 
-class testActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     val manager = supportFragmentManager
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_search -> {
-                createFragmentOne()
+                test(SearchFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_favorite -> {
-                createFragmentTwo()
+                test(FavoriteFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_people -> {
-                createFragmentThree()
+                test(PeopleFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_user -> {
-                createFragmentFour()
+                test(UserFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -37,38 +38,14 @@ class testActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test)
-
+        setContentView(R.layout.activity_home)
+        test(SearchFragment())
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    fun createFragmentOne(){
+    fun test(view: Fragment){
         val transaction = manager.beginTransaction()
-        val fragment = SearchFragment()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-    fun createFragmentTwo(){
-        val transaction = manager.beginTransaction()
-        val fragment = FavoriteFragment()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-    fun createFragmentThree(){
-        val transaction = manager.beginTransaction()
-        val fragment = UserFragment()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-    fun createFragmentFour(){
-        val transaction = manager.beginTransaction()
-        val fragment = FavoriteFragment()
+        val fragment = view
         transaction.replace(R.id.fragment_container, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
