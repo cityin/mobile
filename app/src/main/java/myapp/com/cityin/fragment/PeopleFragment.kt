@@ -15,45 +15,18 @@ import kotlinx.android.synthetic.main.fragment_people.*
 import myapp.com.cityin.R
 import myapp.com.cityin.fragment.fragmentPeoplePage.ActivitiesFragment
 import myapp.com.cityin.fragment.fragmentPeoplePage.SuggestionFragment
+import android.support.v7.app.AppCompatActivity
+import myapp.com.cityin.adapter.ViewPagerAdapter
+
 
 class PeopleFragment : Fragment() {
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_people, container, false)
-        
 
-        Log.i("context", "test")
-        /*val manager = childFragmentManager
-        val adapter = myViewPagerAdapter(manager)
-        Log.i("PeopleFragment", "test")
+        val manager = childFragmentManager
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-        adapter.addFragment(ActivitiesFragment(), "one")
-        adapter.addFragment(SuggestionFragment(), "two")
-        viewPager.adapter
-        tabs.setupWithViewPager(viewPager)*/
     }
-
-    /*class myViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager){
-
-        val fragmentList: MutableList<Fragment> = ArrayList()
-        val TitleList: MutableList<String> = ArrayList()
-
-        override fun getItem(position: Int): Fragment {
-            return fragmentList[position]
-        }
-
-        override fun getCount(): Int {
-            return fragmentList.size
-        }
-
-        fun addFragment(view: Fragment, title:String){
-            fragmentList.add(view)
-            TitleList.add(title)
-        }
-
-        override fun getPageTitle(position: Int): CharSequence? {
-            return TitleList[position]
-        }
-
-    }*/
 }
