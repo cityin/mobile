@@ -20,8 +20,11 @@ class PeopleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_people, container, false)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
         val manager = childFragmentManager
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
         adapter = ViewPagerAdapter(manager)
         adapter.addFragments(SuggestionFragment(), "Suggestion")
@@ -30,6 +33,5 @@ class PeopleFragment : Fragment() {
         viewPager.adapter = adapter
 
         tabs.setupWithViewPager(viewPager)
-
     }
 }
