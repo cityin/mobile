@@ -20,7 +20,7 @@ class ActivitiesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        activities_fragment.text = "fragment two"
+
     }
 
 

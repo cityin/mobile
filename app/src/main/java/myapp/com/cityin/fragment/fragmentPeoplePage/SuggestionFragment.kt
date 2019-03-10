@@ -19,7 +19,7 @@ class SuggestionFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        suggestion_fragment.text = "fragment one"
+
     }
 
 
