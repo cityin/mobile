@@ -4,6 +4,8 @@
     <string name="title_favorite">Whishlist</string>
     <string name="title_people">Groupes</string>
     <string name="title_user">Profil</string>
+    <string name="title_suggestion">Suggestions</string>
+    <string name="title_Avenir">À venir</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_sugg_fragment">Hello suggestion fragment</string>
