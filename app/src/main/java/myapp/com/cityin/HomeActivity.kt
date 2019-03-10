@@ -17,19 +17,19 @@ class HomeActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_search -> {
-                test(SearchFragment())
+                startFragment(SearchFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_favorite -> {
-                test(FavoriteFragment())
+                startFragment(FavoriteFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_people -> {
-                test(PeopleFragment())
+                startFragment(PeopleFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_user -> {
-                test(UserFragment())
+                startFragment(UserFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -39,11 +39,11 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        test(SearchFragment())
+        startFragment(SearchFragment())
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    fun test(view: Fragment){
+    fun startFragment(view: Fragment){
         val transaction = manager.beginTransaction()
         val fragment = view
         transaction.replace(R.id.fragment_container, fragment)
