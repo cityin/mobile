@@ -13,7 +13,7 @@ import myapp.com.cityin.fragment.fragmentPeoplePage.ActivitiesFragment
 import myapp.com.cityin.fragment.fragmentPeoplePage.SuggestionFragment
 
 
-class PeopleFragment : Fragment() {
+class PeopleFragment : Fragment(), View.OnClickListener {
 
     lateinit var adapter: ViewPagerAdapter
 
@@ -22,8 +22,9 @@ class PeopleFragment : Fragment() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
         val manager = childFragmentManager
 
         adapter = ViewPagerAdapter(manager)
@@ -34,4 +35,9 @@ class PeopleFragment : Fragment() {
 
         tabs.setupWithViewPager(viewPager)
     }
+
+    override fun onClick(v: View?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 }
