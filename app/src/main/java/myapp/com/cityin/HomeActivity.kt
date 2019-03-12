@@ -1,9 +1,8 @@
 package myapp.com.cityin
 
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import myapp.com.cityin.fragment.FavoriteFragment
 import myapp.com.cityin.fragment.PeopleFragment
@@ -43,7 +42,7 @@ class HomeActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    fun startFragment(view: Fragment){
+    fun startFragment(view: androidx.fragment.app.Fragment){
         val transaction = manager.beginTransaction()
         val fragment = view
         transaction.replace(R.id.fragment_container, fragment)

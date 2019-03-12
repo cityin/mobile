@@ -3,14 +3,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.fragmentPeoplePage.SuggestionFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/suggestion_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_activity"/>
-
-</RelativeLayout>
+    tools:context=".fragment.fragmentPeoplePage.SuggestionFragment"/>

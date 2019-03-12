@@ -2,16 +2,16 @@ package myapp.com.cityin.fragment.fragmentPeoplePage
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_activities.*
-import kotlinx.android.synthetic.main.fragment_sugg.*
-
 import myapp.com.cityin.R
+import myapp.com.cityin.adapter.FolderAdapter
+import myapp.com.cityin.network.FoldersService
 
-class ActivitiesFragment : Fragment() {
+class ActivitiesFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -19,8 +19,17 @@ class ActivitiesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_activities, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
+        activities_recyclerView.layoutManager = LinearLayoutManager(context)
+
+        FoldersService.getFolders({
+            folders -> folders.size
+            activities_recyclerView.adapter = FolderAdapter(folders)
+        }, {
+
+        })
     }
 
 
