@@ -1,65 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activityLayoutCard"
     android:layout_width="match_parent"
-    android:layout_height="270dp">
+    android:layout_height="320dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:focusable="true"
         android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground">
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/img_item"
+                android:id="@+id/activityImageView"
                 android:layout_width="match_parent"
-                android:layout_height="180dp" />
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
 
             <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_item"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:textSize="18dp"
-                android:textColor="@color/cardview_dark_background"
-                tools:text="Note 1"/>
-
-            <RelativeLayout
+                android:id="@+id/activityNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                >
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:maxLines="2"
+                android:text="Titre"
+                android:textColor="@color/colorMineShaft"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false">
 
                 <TextView
-                    android:id="@+id/price_activity"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/activityPriceTextView"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    tools:text="prix de l'app"
-                    />
-
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Prix"
+                    app:layout_constraintEnd_toStartOf="@+id/activityMarkRateTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/note_activity"
-                    android:layout_alignParentEnd="true"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/activityMarkRateTextView"
+                    android:layout_width="20dp"
                     android:layout_height="wrap_content"
-                    tools:text="ceci est une note"
-                    />
-            </RelativeLayout>
+                    android:layout_marginEnd="8dp"
+                    android:text="Rate"
+                    app:layout_constraintBottom_toBottomOf="@+id/activityPriceTextView"
+                    app:layout_constraintEnd_toStartOf="@+id/activityRatingBar"
+                    app:layout_constraintStart_toEndOf="@+id/activityPriceTextView"
+                    app:layout_constraintTop_toTopOf="@+id/activityPriceTextView" />
 
-        </RelativeLayout>
+                <RatingBar
+                    android:id="@+id/activityRatingBar"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="3"
+                    android:stepSize="1"
+                    android:progressTint="@color/colorSanMarino"
+                    app:layout_constraintBottom_toBottomOf="@+id/activityMarkRateTextView"
+                    app:layout_constraintEnd_toStartOf="@+id/activityVotesTextView"
+                    app:layout_constraintStart_toEndOf="@+id/activityMarkRateTextView"
+                    app:layout_constraintTop_toTopOf="@+id/activityMarkRateTextView" />
+
+                <TextView
+                    android:id="@+id/activityVotesTextView"
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Votes"
+                    app:layout_constraintBottom_toBottomOf="@+id/activityRatingBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/activityRatingBar"
+                    app:layout_constraintTop_toTopOf="@+id/activityRatingBar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
