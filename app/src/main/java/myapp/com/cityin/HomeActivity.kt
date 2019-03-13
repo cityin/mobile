@@ -5,7 +5,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import myapp.com.cityin.fragment.FavoriteFragment
-import myapp.com.cityin.fragment.PeopleFragment
+import myapp.com.cityin.fragment.GroupeFragment
 import myapp.com.cityin.fragment.SearchFragment
 import myapp.com.cityin.fragment.UserFragment
 
@@ -24,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_people -> {
-                startFragment(PeopleFragment())
+                startFragment(GroupeFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_user -> {
@@ -44,8 +44,7 @@ class HomeActivity : AppCompatActivity() {
 
     fun startFragment(view: androidx.fragment.app.Fragment){
         val transaction = manager.beginTransaction()
-        val fragment = view
-        transaction.replace(R.id.fragment_container, fragment)
+        transaction.replace(R.id.fragment_container, view)
         transaction.addToBackStack(null)
         transaction.commit()
     }

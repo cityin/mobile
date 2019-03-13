@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"/>
 
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"

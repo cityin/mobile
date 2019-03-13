@@ -31,6 +31,4 @@ class FoldersFragment : androidx.fragment.app.Fragment() {
 
         })
     }
-
-
 }

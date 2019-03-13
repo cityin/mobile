@@ -1,9 +1,5 @@
 package myapp.com.cityin.adapter
 
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-
 class ViewPagerAdapter(fm: androidx.fragment.app.FragmentManager): androidx.fragment.app.FragmentPagerAdapter(fm){
 
     var mfm = fm
@@ -23,4 +19,7 @@ class ViewPagerAdapter(fm: androidx.fragment.app.FragmentManager): androidx.frag
         return mFragmentItems.size
     }
 
+    override fun getPageTitle(position: Int): CharSequence? {
+        return mFragmentTitle[position]
+    }
 }
