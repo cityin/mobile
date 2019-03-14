@@ -12,6 +12,9 @@ import myapp.com.cityin.fragment.fragmentPeoplePage.SuggestionFragment
 
 
 class GroupeFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
+    override fun onClick(v: View?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     lateinit var adapter: ViewPagerAdapter
 
@@ -27,15 +30,11 @@ class GroupeFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
 
         adapter = ViewPagerAdapter(manager)
         adapter.addFragments(FoldersFragment(),"Activités")
-        adapter.addFragments(SuggestionFragment(), "Suggestion")
+        adapter.addFragments(SuggestionFragment(), "Suggestions")
 
         viewPager.adapter = adapter
 
         tabs.setupWithViewPager(viewPager)
-    }
-
-    override fun onClick(v: View?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }

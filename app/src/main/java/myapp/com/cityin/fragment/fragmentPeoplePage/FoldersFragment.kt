@@ -22,11 +22,11 @@ class FoldersFragment : androidx.fragment.app.Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        activities_recyclerView.layoutManager = LinearLayoutManager(context)
+        foldersRecyclerView.layoutManager = LinearLayoutManager(context)
 
         FoldersService.getFolders({
             folders -> folders.size
-            activities_recyclerView.adapter = FolderAdapter(folders)
+            foldersRecyclerView.adapter = FolderAdapter(folders)
         }, {
 
         })

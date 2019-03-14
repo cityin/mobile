@@ -16,12 +16,12 @@
         android:textColor="@color/colorMineShaft"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/activities_recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/foldersRecyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activities_recyclerView"
+        android:id="@+id/foldersRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
