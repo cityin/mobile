@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_sugg.*
+import kotlinx.android.synthetic.main.fragment_incoming.*
 import myapp.com.cityin.R
 import myapp.com.cityin.adapter.SuggestionAdapter
 import myapp.com.cityin.network.ActivitiesService
