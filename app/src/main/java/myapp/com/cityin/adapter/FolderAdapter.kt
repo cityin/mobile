@@ -3,10 +3,12 @@ package myapp.com.cityin.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_folder.view.*
 import myapp.com.cityin.R
+import myapp.com.cityin.fragment.whislist_fragment.WhishlistFragmentTravelBandDirections
 import myapp.com.cityin.network.response.Folder
 
 class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomViewHolder>() {
@@ -35,6 +37,18 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
         val cardPicture = holder.itemView.folderImageView
 
         Picasso.get().load(folder.thumbnailUrl).into(cardPicture)
+
+
+        val folderId: String
+
+        folderId = folder.folderId
+
+        val action = WhishlistFragmentTravelBandDirections.actionWhishlistFragmentTravelBandToWhislistFragmentTravelBandActivities(folderId)
+
+        holder.view.setOnClickListener{
+            it.findNavController().navigate(action)
+        }
+
     }
 }
 

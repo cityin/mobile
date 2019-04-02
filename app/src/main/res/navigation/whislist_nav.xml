@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/whishlistFragmentTravelBand">
+    <fragment
+        android:id="@+id/whishlistFragmentTravelBand"
+        android:name="myapp.com.cityin.fragment.whislist_fragment.WhishlistFragmentTravelBand"
+        android:label="fragment_whish_list_fragment_travel_band"
+        tools:layout="@layout/fragment_whish_list_fragment_travel_band" >
+        <action
+            android:id="@+id/action_whishlistFragmentTravelBand_to_whislistFragmentTravelBandActivities"
+            app:destination="@id/whislistFragmentTravelBandActivities" />
+    </fragment>
+    <fragment
+        android:id="@+id/whislistFragmentTravelBandActivities"
+        android:name="myapp.com.cityin.fragment.whislist_fragment.WhislistFragmentTravelBandActivities"
+        android:label="fragment_whislist_fragment_folder_activities"
+        tools:layout="@layout/fragment_whislist_fragment_folder_activities" >
+        <argument
+            android:name="folderId"
+            app:argType="string" />
+    </fragment>
+</navigation>

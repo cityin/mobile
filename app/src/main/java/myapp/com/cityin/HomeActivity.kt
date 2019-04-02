@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import myapp.com.cityin.fragment.WhislitFragment
+import myapp.com.cityin.fragment.WhishlistFragment
 import myapp.com.cityin.fragment.IncomingFragment
 import myapp.com.cityin.fragment.SearchFragment
 import myapp.com.cityin.fragment.UserFragment
@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_favorite -> {
-                startFragment(WhislitFragment())
+                startFragment(WhishlistFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_incoming -> {
