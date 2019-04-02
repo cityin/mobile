@@ -31,7 +31,7 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
         val folder = folders.get(position)
 
         holder.itemView.folderTitleTextView.text = folder.name
-        holder.view.folderNumberOfActivitiesTextView.text = "| ${folder.nbActivities} activités"
+        holder.view.folderNumberOfActivitiesTextView.text = "| ${folder.activityCount} activités"
 
         // Use Picasso to set the image url into the cardView
         val cardPicture = holder.itemView.folderImageView
@@ -41,7 +41,7 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
 
         val folderId: String
 
-        folderId = folder.folderId
+        folderId = folder.travelBandId
 
         val action = WishListFragmentTravelBandDirections.actionFromTravelBandToActivities(folderId)
 

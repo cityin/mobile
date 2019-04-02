@@ -12,7 +12,7 @@ class FoldersService {
     companion object {
         fun getFolders(success: (folders: Array<Folder>) -> Unit,
                        failure: (VolleyError?) -> Unit) {
-            val url = UrlBuilder.foldersUrl
+            val url = UrlBuilder.travelBand
 
             val request = BaseRequest.Builder<Array<Folder>>(Request.Method.GET,
                     url, Array<Folder>::class.java).listener(object: RequestListener<Array<Folder>> {
