@@ -9,4 +9,15 @@
     <string name="title_notifications">Notifications</string>
     <string name="activities_list">List d\'activités</string>
     <string name="incoming_list">Whishlist</string>
+    <string name="searchbarPlaceholder">Essayons \« Paris \» ou \« Sport \»</string>
+
+    <string name="search_header_title">Laissez-vous tenter par une gamme d\'activités</string>
+    <string name="search_header_subtitle">Activités mise en avant</string>
+    <string name="search_header_subtitle_description">
+        Une gamme d\’activité testée et approuvée par la communauté. Vous aussi vivez comme un Spotter !
+    </string>
+
+    <string name="btn_more_activities">
+        Afficher plus d'\activités
+    </string>
 </resources>
