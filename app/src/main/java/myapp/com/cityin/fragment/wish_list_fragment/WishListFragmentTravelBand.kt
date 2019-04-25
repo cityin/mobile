@@ -1,13 +1,12 @@
 package myapp.com.cityin.fragment.wish_list_fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_wish_list_fragment_travel_band.*
-
 import myapp.com.cityin.R
 import myapp.com.cityin.adapter.FolderAdapter
 import myapp.com.cityin.network.FoldersService
