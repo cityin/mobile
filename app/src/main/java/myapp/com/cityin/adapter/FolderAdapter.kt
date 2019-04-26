@@ -1,5 +1,6 @@
 package myapp.com.cityin.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,7 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
 
         holder.view.setOnClickListener{
             it.findNavController().navigate(action)
+            Log.i("test","eertt")
         }
 
     }

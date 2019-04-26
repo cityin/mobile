@@ -17,9 +17,20 @@
         android:id="@+id/whishlistFragmentTravelBandActivities"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivities"
         android:label="fragment_whishlist_fragment_folder_activities"
-        tools:layout="@layout/fragment_wish_list_fragment_folder_activities" >
+        tools:layout="@layout/fragment_wish_list_fragment_folder_activities">
         <argument
             android:name="folderId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_from_travel_band_to_details_activities"
+            app:destination="@id/detailsActivitiesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsActivitiesFragment"
+        android:name="myapp.com.cityin.fragment.wish_list_fragment.DetailsActivitiesFragment"
+        android:label="DetailsActivitiesFragment" >
+        <argument
+            android:name="activityId"
             app:argType="string" />
     </fragment>
 </navigation>
