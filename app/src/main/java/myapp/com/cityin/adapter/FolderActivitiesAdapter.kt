@@ -9,6 +9,8 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_activity.view.*
 import myapp.com.cityin.R
 import myapp.com.cityin.fragment.WishlistFragment
+import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivities
+import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivitiesDirections
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandDirections
 import myapp.com.cityin.network.response.Activity
 
@@ -38,6 +40,16 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
         val cardPicture = holder.view.activityImageView
 
         Picasso.get().load(activity.pictures[0]).into(cardPicture)
+
+        val activityId: String
+        activityId = activity.activityId
+
+        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivities2ToDetailsActivitiesFragment3(activityId)
+
+        holder.view.activityCardView.setOnClickListener{
+            it.findNavController().navigate(action)
+        }
+
     }
 }
 
