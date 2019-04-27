@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_folder.view.*
 import myapp.com.cityin.R
+import myapp.com.cityin.fragment.WishlistFragment
+import myapp.com.cityin.fragment.WishlistFragmentDirections
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandDirections
 import myapp.com.cityin.network.response.Folder
 
@@ -44,7 +46,7 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
 
         folderId = folder.travelBandId
 
-        val action = WishListFragmentTravelBandDirections.actionFromTravelBandToActivities(folderId)
+        val action = WishlistFragmentDirections.actionWishlistFragmentToWishListFragmentTravelBandActivities2(folderId)
 
         holder.view.setOnClickListener{
             it.findNavController().navigate(action)
