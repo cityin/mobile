@@ -50,7 +50,6 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
 
         holder.view.setOnClickListener{
             it.findNavController().navigate(action)
-            Log.i("test","eertt")
         }
 
     }

@@ -38,6 +38,7 @@
         android:id="@+id/detailsActivitiesFragment3"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.DetailsActivitiesFragment"
         android:label="DetailsActivitiesFragment" >
-        <argument android:name="activityId" />
+        <argument android:name="activityId"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -23,7 +23,6 @@ class WishListFragmentTravelBandActivities : androidx.fragment.app.Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         folderId = args.folderId
-
         activitiesRecyclerView.layoutManager = LinearLayoutManager(context)
 
         ActivitiesService.getActivitiesByTravelBandId(folderId, {

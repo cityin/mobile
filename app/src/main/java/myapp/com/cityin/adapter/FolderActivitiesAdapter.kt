@@ -13,6 +13,7 @@ import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandAc
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivitiesDirections
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandDirections
 import myapp.com.cityin.network.response.Activity
+import myapp.com.cityin.network.response.Folder
 
 class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Adapter<CustomFolderActivitiesViewHolder>() {
 
