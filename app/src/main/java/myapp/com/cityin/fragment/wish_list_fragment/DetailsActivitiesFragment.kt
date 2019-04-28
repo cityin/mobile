@@ -10,6 +10,7 @@ import android.view.WindowId
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_wish_list_fragment_folder_activities.*
 import myapp.com.cityin.R
 import myapp.com.cityin.network.ActivitiesService
@@ -34,12 +35,21 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment() {
         val stuffText: TextView = view!!.findViewById(R.id.textStuff)
         val languageText: TextView = view!!.findViewById(R.id.textLanugage)
         val descriptionText: TextView = view!!.findViewById(R.id.descriptionActivity)
+        val titleIconText: TextView = view!!.findViewById(R.id.titleIcon)
 
         activityId = args.activityId
 
         ActivitiesService.getDetailsActivitiesByTravelBand(activityId, {
               activities -> activities
-              nameText.text = activities.office.name.toString()
+
+              Picasso.get().load(activities.pictures[0]).into(imageActivity)
+              nameText.text = activities.name.toString()
+              locationText.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
+              durationText.text = "${activities.duration.toString()} heure"
+              languageText.text = "${activities.language.toString()}"
+              titleIconText.text = "En savoir plus sur \"${activities.office.name.toString()}\""
+              descriptionText.text = activities.office.about.toString()
+
         }, {
             Log.i("test","test")
         })
