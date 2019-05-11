@@ -12,6 +12,8 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import kotlinx.android.synthetic.main.activity_home.*
 import java.security.AccessController
 
@@ -28,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
         bottomNav.setupWithNavController(navController)
 
         NavigationUI.setupActionBarWithNavController(this, navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
