@@ -133,12 +133,17 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
@@ -155,23 +160,25 @@
                     android:id="@+id/titleIcon"
                     android:layout_width="165dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/iconActivity"
                     app:layout_constraintStart_toEndOf="@+id/iconActivity"
                     app:layout_constraintTop_toTopOf="@+id/iconActivity"
+                    app:layout_constraintVertical_bias="1.0"
                     tools:text="En savoir plus sur, « Stohrer »" />
 
                 <TextView
                     android:id="@+id/descriptionActivity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="8dp"
                     android:lineSpacingExtra="8sp"
                     android:textColor="#000000"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -194,16 +201,21 @@
                     android:id="@+id/infoComplementary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="8dp"
                     android:lineSpacingExtra="8sp"
                     android:text="Pour des raisons d’hygiènes, vous aurez l’obligation de portez des protèges chaussures, une charlotte et des gants 😊"
                     android:textColor="#212121"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleInfoComplementary" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <fragment xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -216,11 +228,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:context=".MapsActivity" />
 
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="8dp"
+                 android:layout_marginTop="8dp"
+                 android:textAlignment="center"
+                 android:textColor="#808080"
+                 android:text="*Cliquez longuement sur la carte pour afficher en pleine écran"/>
+
+            </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp">
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:id="@+id/titleAvailability"
@@ -242,7 +264,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/pick_time"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/btn2"
                     app:layout_constraintTop_toTopOf="@+id/btn2" />
@@ -254,11 +276,12 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="@string/pick_date"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleAvailability" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
