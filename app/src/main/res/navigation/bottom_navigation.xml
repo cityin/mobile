@@ -40,5 +40,16 @@
         android:label="DetailsActivitiesFragment" >
         <argument android:name="activityId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailsActivitiesFragment3_to_mapFragment2"
+            app:destination="@id/mapFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment2"
+        android:name="myapp.com.cityin.fragment.wish_list_fragment.maps_fragment.MapFragment"
+        android:label="MapFragment" >
+        <argument
+            android:name="test"
+            app:argType="string" />
     </fragment>
 </navigation>

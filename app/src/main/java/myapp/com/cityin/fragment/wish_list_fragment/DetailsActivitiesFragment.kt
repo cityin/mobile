@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.NavDirections
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -29,16 +31,6 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
     lateinit var activityId: String
     private lateinit var mMap: GoogleMap
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-    }
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_details_activities, container, false)
     }
@@ -48,7 +40,6 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -76,18 +67,32 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
               descriptionText.text = activities.office.about.toString()
 
         }, {
-            Log.i("test","test")
         })
 
         //Call TimePickerDialog
-
         btn1.setOnClickListener {
             DatePickerFragment().show(fragmentManager, "datePicker")
         }
-
         btn2.setOnClickListener {
             TimePickerFragment().show(fragmentManager, "timePicker")
         }
     }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(48.903982, 2.283730)
+        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mMap.setMinZoomPreference(16.0f)
+
+        mMap.setOnMapLongClickListener {
+            val test = "coucou"
+            val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragment3ToMapFragment2(test)
+            view?.findNavController()?.navigate(action)
+        }
+    }
+
 
 }
