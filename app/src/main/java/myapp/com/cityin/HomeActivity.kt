@@ -29,8 +29,6 @@ class HomeActivity : AppCompatActivity() {
 
         bottomNav.setupWithNavController(navController)
 
-        NavigationUI.setupActionBarWithNavController(this, navController)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
