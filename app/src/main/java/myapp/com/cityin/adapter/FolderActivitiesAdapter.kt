@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_activity.view.*
+import kotlinx.android.synthetic.main.item_folder.view.*
 import myapp.com.cityin.R
 import myapp.com.cityin.fragment.WishlistFragment
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivities
@@ -45,9 +46,9 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
         val activityId: String
         activityId = activity.activityId
 
-        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivities2ToDetailsActivitiesFragment3(activityId)
+        val action = WishListFragmentTravelBandActivitiesDirections.actionFromTravelBandToDetailsActivities(activityId)
 
-        holder.view.activityCardView.setOnClickListener{
+        holder.view.folderLayout.setOnClickListener {
             it.findNavController().navigate(action)
         }
 

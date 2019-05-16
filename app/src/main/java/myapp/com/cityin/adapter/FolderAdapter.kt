@@ -23,7 +23,7 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
 
     // How to create a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+        val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_folder, parent, false)
 
         return CustomViewHolder(cellFlow)
@@ -46,8 +46,7 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
 
         folderId = folder.travelBandId
 
-        val action = WishlistFragmentDirections.actionWishlistFragmentToWishListFragmentTravelBandActivities2(folderId)
-
+        val action = WishListFragmentTravelBandDirections.actionFromTravelBandToActivities(folderId)
         holder.view.setOnClickListener{
             it.findNavController().navigate(action)
         }
