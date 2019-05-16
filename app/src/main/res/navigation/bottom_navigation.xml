@@ -16,14 +16,6 @@
             app:destination="@id/wishListFragmentTravelBandActivities" />
     </fragment>
     <fragment
-        android:id="@+id/incomingFragment"
-        android:name="myapp.com.cityin.fragment.IncomingFragment"
-        android:label="IncomingFragment" />
-    <fragment
-        android:id="@+id/userFragment"
-        android:name="myapp.com.cityin.fragment.UserFragment"
-        android:label="UserFragment" />
-    <fragment
         android:id="@+id/wishListFragmentTravelBandActivities"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivities"
         android:label="WishListFragmentTravelBandActivities" >

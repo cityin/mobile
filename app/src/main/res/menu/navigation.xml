@@ -11,14 +11,4 @@
         android:icon="@drawable/favorite_icon"
         android:title="@string/title_favorite" />
 
-    <item
-        android:id="@+id/incomingFragment"
-        android:icon="@drawable/ic_date_range_black_24dp"
-        android:title="@string/title_incoming" />
-
-    <item
-        android:id="@+id/userFragment"
-        android:icon="@drawable/user_icon"
-        android:title="@string/title_user" />
-
 </menu>
