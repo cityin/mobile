@@ -20,7 +20,7 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomFolderActivitiesViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+        val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_activity, parent, false)
 
         return CustomFolderActivitiesViewHolder(cellFlow)
