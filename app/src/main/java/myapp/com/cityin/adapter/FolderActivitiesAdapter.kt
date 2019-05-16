@@ -7,18 +7,11 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_activity.view.*
-import kotlinx.android.synthetic.main.item_folder.view.*
 import myapp.com.cityin.R
-import myapp.com.cityin.fragment.WishlistFragment
-import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivities
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivitiesDirections
-import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandDirections
 import myapp.com.cityin.network.response.Activity
-import myapp.com.cityin.network.response.Folder
 
 class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Adapter<CustomFolderActivitiesViewHolder>() {
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomFolderActivitiesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_activity, parent, false)
@@ -46,9 +39,9 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
         val activityId: String
         activityId = activity.activityId
 
-        val action = WishListFragmentTravelBandActivitiesDirections.actionFromTravelBandToDetailsActivities(activityId)
+        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivitiesToDetailsActivitiesFragment(activityId)
 
-        holder.view.folderLayout.setOnClickListener {
+        holder.view.setOnClickListener {
             it.findNavController().navigate(action)
         }
 

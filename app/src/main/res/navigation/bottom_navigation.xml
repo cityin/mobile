@@ -12,8 +12,8 @@
         android:name="myapp.com.cityin.fragment.WishlistFragment"
         android:label="WishlistFragment" >
         <action
-            android:id="@+id/action_wishlistFragment_to_wishListFragmentTravelBandActivities2"
-            app:destination="@id/wishListFragmentTravelBandActivities2" />
+            android:id="@+id/action_wishlistFragment_to_wishListFragmentTravelBandActivities"
+            app:destination="@id/wishListFragmentTravelBandActivities" />
     </fragment>
     <fragment
         android:id="@+id/incomingFragment"
@@ -24,28 +24,28 @@
         android:name="myapp.com.cityin.fragment.UserFragment"
         android:label="UserFragment" />
     <fragment
-        android:id="@+id/wishListFragmentTravelBandActivities2"
+        android:id="@+id/wishListFragmentTravelBandActivities"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivities"
         android:label="WishListFragmentTravelBandActivities" >
         <argument
             android:name="folderId"
             app:argType="string" />
         <action
-            android:id="@+id/action_wishListFragmentTravelBandActivities2_to_detailsActivitiesFragment3"
-            app:destination="@id/detailsActivitiesFragment3" />
+            android:id="@+id/action_wishListFragmentTravelBandActivities_to_detailsActivitiesFragment"
+            app:destination="@id/detailsActivitiesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailsActivitiesFragment3"
+        android:id="@+id/detailsActivitiesFragment"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.DetailsActivitiesFragment"
         android:label="DetailsActivitiesFragment" >
         <argument android:name="activityId"
             app:argType="string" />
         <action
-            android:id="@+id/action_detailsActivitiesFragment3_to_mapFragment2"
-            app:destination="@id/mapFragment2" />
+            android:id="@+id/action_detailsActivitiesFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mapFragment2"
+        android:id="@+id/mapFragment"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.maps_fragment.MapFragment"
         android:label="MapFragment" >
         <argument

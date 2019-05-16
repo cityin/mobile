@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -55,6 +54,8 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
 
         activityId = args.activityId
 
+        Log.d("activityId", activityId)
+
         ActivitiesService.getDetailsActivitiesByTravelBand(activityId, {
               activities -> activities
 
@@ -89,7 +90,7 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
 
         mMap.setOnMapLongClickListener {
             val test = "coucou"
-            val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragment3ToMapFragment2(test)
+            val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragmentToMapFragment(test)
             view?.findNavController()?.navigate(action)
         }
     }
