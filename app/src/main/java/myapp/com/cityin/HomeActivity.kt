@@ -1,51 +1,39 @@
 package myapp.com.cityin
 
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import kotlinx.android.synthetic.main.activity_home.*
-import myapp.com.cityin.fragment.WhishlistFragment
-import myapp.com.cityin.fragment.IncomingFragment
-import myapp.com.cityin.fragment.SearchFragment
-import myapp.com.cityin.fragment.UserFragment
+import java.security.AccessController
 
 class HomeActivity : AppCompatActivity() {
 
-    val manager = supportFragmentManager
-
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_search -> {
-                startFragment(SearchFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_favorite -> {
-                startFragment(WhishlistFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_incoming -> {
-                startFragment(IncomingFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_user -> {
-                startFragment(UserFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        startFragment(SearchFragment())
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+
+        bottomNav.setupWithNavController(navController)
+
+        NavigationUI.setupActionBarWithNavController(this, navController)
+
     }
 
-    fun startFragment(view: androidx.fragment.app.Fragment){
-        val transaction = manager.beginTransaction()
-        transaction.replace(R.id.fragment_container, view)
-        transaction.addToBackStack(null)
-        transaction.commit()
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, null)
     }
 }

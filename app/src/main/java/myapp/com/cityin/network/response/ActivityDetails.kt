@@ -1,6 +1,7 @@
 package myapp.com.cityin.network.response
 
-class Activity {
+class ActivityDetails {
+
     var capacity = 0
     var nbVotes = 0
     var mark = 0
@@ -10,13 +11,13 @@ class Activity {
     lateinit var office: Office
     lateinit var location: Location
     lateinit var services: Array<*>
-    lateinit var folderId: String
     lateinit var pictures: Array<String>
     lateinit var activityId: String
     lateinit var name: String
     lateinit var language: String
-    lateinit var travelBandId: String
-    lateinit var category: String
+    lateinit var category: ActivityCategorie
     lateinit var description: String
+    lateinit var travelBandId: String
     lateinit var id: String
+    lateinit var availabilities: Array<*>
 }

@@ -7,6 +7,8 @@ import com.neopixl.spitfire.listener.RequestListener
 import com.neopixl.spitfire.request.BaseRequest
 import myapp.com.cityin.CityInApp
 import myapp.com.cityin.network.response.Activity
+import myapp.com.cityin.network.response.ActivityDetails
+import myapp.com.cityin.network.response.Office
 
 class ActivitiesService {
     companion object {
@@ -48,6 +50,27 @@ class ActivitiesService {
             }).build()
 
             CityInApp.requestQueue.add(request)
+        }
+
+        fun getDetailsActivitiesByTravelBand(activityId: String, success: (activities: ActivityDetails) -> Unit,
+                                             failure: (VolleyError?) -> Unit) {
+            val url = UrlBuilder.getDetailsActivitiesByTravelBand(activityId)
+
+            val request = BaseRequest.Builder<ActivityDetails>(Request.Method.GET,
+                    url, ActivityDetails::class.java).listener(object: RequestListener<ActivityDetails> {
+                override fun onFailure(request: Request<ActivityDetails>, response: NetworkResponse?, error: VolleyError?) {
+                    failure(error)
+                }
+
+                override fun onSuccess(request: Request<ActivityDetails>, response: NetworkResponse, result: ActivityDetails?) {
+                    val activities = result ?: ActivityDetails()
+
+                    success(activities)
+                }
+            }).build()
+
+            CityInApp.requestQueue.add(request)
+
         }
     }
 }

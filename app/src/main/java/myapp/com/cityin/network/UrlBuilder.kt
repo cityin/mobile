@@ -9,5 +9,8 @@ class UrlBuilder {
         fun getActivitiesByTravelBand(travelBandId: String): String {
             return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/travel-bands/$travelBandId/activities"
         }
+        fun getDetailsActivitiesByTravelBand(test: String): String {
+            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/activities/$test"
+        }
     }
 }
