@@ -6,99 +6,89 @@
     android:layout_width="match_parent"
     android:layout_height="320dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/activityCardView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/activityImageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
 
-            <ImageView
-                android:id="@+id/activityImageView"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
+        <TextView
+            android:id="@+id/activityNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="2"
+            android:text="Titre"
+            android:textColor="@color/colorMineShaft"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
 
             <TextView
-                android:id="@+id/activityNameTextView"
-                android:layout_width="match_parent"
+                android:id="@+id/activityPriceTextView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:maxLines="2"
-                android:text="Titre"
-                android:textColor="@color/colorMineShaft"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="Prix"
+                app:layout_constraintEnd_toStartOf="@+id/activityMarkRateTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:baselineAligned="false">
+            <TextView
+                android:id="@+id/activityMarkRateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="Rate"
+                android:textColor="@color/colorSanMarino"
+                app:layout_constraintBottom_toBottomOf="@+id/activityPriceTextView"
+                app:layout_constraintEnd_toStartOf="@+id/activityRatingBar"
+                app:layout_constraintStart_toEndOf="@+id/activityPriceTextView"
+                app:layout_constraintTop_toTopOf="@+id/activityPriceTextView" />
 
-                <TextView
-                    android:id="@+id/activityPriceTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Prix"
-                    app:layout_constraintEnd_toStartOf="@+id/activityMarkRateTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <RatingBar
+                android:id="@+id/activityRatingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:numStars="5"
+                android:progressTint="@color/colorSanMarino"
+                android:stepSize="0.1"
+                app:layout_constraintBottom_toBottomOf="@+id/activityMarkRateTextView"
+                app:layout_constraintEnd_toStartOf="@+id/activityVotesTextView"
+                app:layout_constraintStart_toEndOf="@+id/activityMarkRateTextView"
+                app:layout_constraintTop_toTopOf="@+id/activityMarkRateTextView" />
 
-                <TextView
-                    android:id="@+id/activityMarkRateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:text="Rate"
-                    android:textColor="@color/colorSanMarino"
-                    app:layout_constraintBottom_toBottomOf="@+id/activityPriceTextView"
-                    app:layout_constraintEnd_toStartOf="@+id/activityRatingBar"
-                    app:layout_constraintStart_toEndOf="@+id/activityPriceTextView"
-                    app:layout_constraintTop_toTopOf="@+id/activityPriceTextView" />
-
-                <RatingBar
-                    android:id="@+id/activityRatingBar"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:numStars="5"
-                    android:progressTint="@color/colorSanMarino"
-                    android:stepSize="0.1"
-                    app:layout_constraintBottom_toBottomOf="@+id/activityMarkRateTextView"
-                    app:layout_constraintEnd_toStartOf="@+id/activityVotesTextView"
-                    app:layout_constraintStart_toEndOf="@+id/activityMarkRateTextView"
-                    app:layout_constraintTop_toTopOf="@+id/activityMarkRateTextView" />
-
-                <TextView
-                    android:id="@+id/activityVotesTextView"
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="Votes"
-                    app:layout_constraintBottom_toBottomOf="@+id/activityRatingBar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/activityRatingBar"
-                    app:layout_constraintTop_toTopOf="@+id/activityRatingBar" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-
-
-    </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/activityVotesTextView"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:text="Votes"
+                app:layout_constraintBottom_toBottomOf="@+id/activityRatingBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/activityRatingBar"
+                app:layout_constraintTop_toTopOf="@+id/activityRatingBar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
