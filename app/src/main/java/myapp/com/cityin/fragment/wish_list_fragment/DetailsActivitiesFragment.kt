@@ -2,37 +2,36 @@ package myapp.com.cityin.fragment.wish_list_fragment
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.NavDirections
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_details_activities.*
 import myapp.com.cityin.R
 import myapp.com.cityin.fragment.wish_list_fragment.set_Time_Fragment.DatePickerFragment
 import myapp.com.cityin.fragment.wish_list_fragment.set_Time_Fragment.TimePickerFragment
-import myapp.com.cityin.network.ActivitiesService
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import myapp.com.cityin.fragment.wish_list_fragment.maps_fragment.MapFragment
+import myapp.com.cityin.fragment.wish_list_fragment.maps_fragment.MapFragmentFullScreen
+import myapp.com.cityin.network.ActivitiesService.Companion.getDetailsActivitiesByTravelBand
 
 
-class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
+class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCallback {
 
     val args: DetailsActivitiesFragmentArgs by navArgs()
     lateinit var activityId: String
+    lateinit var travelBandId: String
     private lateinit var mMap: GoogleMap
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_details_activities, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,8 +53,9 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
         val titleIconText: TextView = view!!.findViewById(R.id.titleIcon)
 
         activityId = args.activityId
+        travelBandId = args.travelBandId
 
-        ActivitiesService.getDetailsActivitiesByTravelBand(activityId, {
+        getDetailsActivitiesByTravelBand(activityId, {
               activities -> activities
 
               Picasso.get().load(activities.pictures[0]).into(imageActivity)
@@ -64,8 +64,6 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
               durationText.text = "${activities.duration.toString()} heure"
               languageText.text = "${activities.language.toString()}"
               titleIconText.text = "En savoir plus sur \"${activities.office.name.toString()}\""
-              descriptionText.text = activities.office.about.toString()
-
         }, {
         })
 
@@ -76,23 +74,42 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
         btn2.setOnClickListener {
             TimePickerFragment().show(fragmentManager, "timePicker")
         }
-    }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(48.903982, 2.283730)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-        mMap.setMinZoomPreference(16.0f)
-
-        mMap.setOnMapLongClickListener {
-            val test = "coucou"
-            val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragment3ToMapFragment2(test)
-            view?.findNavController()?.navigate(action)
+        btnSpotters.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("travelBandId", travelBandId)
+            val fragobj = AddSpottersActivitiesFragment()
+            fragobj.arguments = bundle
+            fragobj.show(fragmentManager, "OpenFragment")
         }
     }
 
 
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+
+        getDetailsActivitiesByTravelBand(activityId, {
+            activities -> activities
+
+            var longitude = activities.location.longitude
+            var latitude = activities.location.latitude
+
+            // Add a marker in Sydney and move the camera
+            val sydney = LatLng(latitude.toDouble(),longitude.toDouble())
+            mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            mMap.setMinZoomPreference(15.0f)
+
+            mMap.setOnMapLongClickListener {
+
+                val bundle = Bundle()
+                bundle.putFloat("longitude", longitude.toFloat())
+                bundle.putFloat("latitude", latitude.toFloat())
+                val Map = MapFragmentFullScreen()
+                Map.arguments = bundle
+                Map.show(fragmentManager, "test")
+            }
+        }, {
+        })
+    }
 }

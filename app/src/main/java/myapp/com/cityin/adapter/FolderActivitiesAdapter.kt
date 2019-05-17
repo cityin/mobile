@@ -44,8 +44,10 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
 
         val activityId: String
         activityId = activity.activityId
+        val travelBandId: String
+        travelBandId = activity.travelBandId
 
-        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivities2ToDetailsActivitiesFragment3(activityId)
+        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivities2ToDetailsActivitiesFragment3(activityId,travelBandId)
 
         holder.view.activityCardView.setOnClickListener{
             it.findNavController().navigate(action)

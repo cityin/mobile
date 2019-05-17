@@ -15,8 +15,14 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import myapp.com.cityin.R
+import android.R.id
 
-class MapFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
+
+
+class MapFragmentFullScreen : BottomSheetDialogFragment(), OnMapReadyCallback {
+    override fun onMapReady(p0: GoogleMap?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     lateinit var test: String
     private var mMap: GoogleMap? = null
@@ -24,9 +30,9 @@ class MapFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundle = arguments
-        val longitude = bundle?.getFloat("longitude")
-        val latitude = bundle?.getFloat("latitude")
-        Log.d("longitude", "${longitude}")
+        //val longitude = bundle?.getFloat("longitude")
+        //val latitude = bundle?.getFloat("latitude")
+        //Log.d("longitude", "${longitude}")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,8 +41,7 @@ class MapFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(this)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -44,11 +49,13 @@ class MapFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
 
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        val sydney = LatLng(-34.0, 151.0)
-        mMap!!.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap!!.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    override fun onDestroyView() {
+        super.onDestroyView()
+        val f = fragmentManager!!
+                .findFragmentById(R.id.map) as MapFragment?
+        if (f != null){
+            fragmentManager!!.beginTransaction().remove(f).commit()
+        }
     }
+
 }

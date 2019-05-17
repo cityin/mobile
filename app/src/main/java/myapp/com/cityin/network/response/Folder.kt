@@ -13,5 +13,5 @@ class Folder {
     lateinit var travelBandId: String
     lateinit var thumbnailUrl: String
     lateinit var folders: Array<*>
-    lateinit var spotters: Array<*>
+    lateinit var spotters: Array<Spotters>
 }

@@ -1,12 +1,14 @@
 package myapp.com.cityin.fragment.wish_list_fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_wish_list_fragment_folder_activities.*
+import kotlinx.android.synthetic.main.item_activity.*
 import myapp.com.cityin.R
 import myapp.com.cityin.adapter.FolderActivitiesAdapter
 import myapp.com.cityin.network.ActivitiesService
@@ -24,6 +26,7 @@ class WishListFragmentTravelBandActivities : androidx.fragment.app.Fragment() {
 
         folderId = args.folderId
         activitiesRecyclerView.layoutManager = LinearLayoutManager(context)
+
 
         ActivitiesService.getActivitiesByTravelBandId(folderId, {
             activities -> activities.size
