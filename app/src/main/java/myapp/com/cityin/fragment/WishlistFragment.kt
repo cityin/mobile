@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_wishlist.*
 import myapp.com.cityin.R
@@ -24,6 +25,8 @@ class WishlistFragment : androidx.fragment.app.Fragment() {
         FoldersService.getFolders({
             folders -> folders.size
             foldersRecyclerView.adapter = FolderAdapter(folders)
+
+            ViewCompat.setNestedScrollingEnabled(foldersRecyclerView, false);
         }, {
 
         })

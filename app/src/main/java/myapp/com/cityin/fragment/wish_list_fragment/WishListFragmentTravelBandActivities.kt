@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_wish_list_fragment_folder_activities.*
@@ -28,6 +29,8 @@ class WishListFragmentTravelBandActivities : androidx.fragment.app.Fragment() {
         ActivitiesService.getActivitiesByTravelBandId(folderId, {
             activities -> activities.size
             activitiesRecyclerView.adapter = FolderActivitiesAdapter(activities)
+
+            ViewCompat.setNestedScrollingEnabled(activitiesRecyclerView, false);
         }, {
 
         })
