@@ -16,8 +16,6 @@ import myapp.com.cityin.fragment.wish_list_fragment.set_Time_Fragment.DatePicker
 import myapp.com.cityin.fragment.wish_list_fragment.set_Time_Fragment.TimePickerFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import myapp.com.cityin.fragment.wish_list_fragment.maps_fragment.MapFragment
-import myapp.com.cityin.fragment.wish_list_fragment.maps_fragment.MapFragmentFullScreen
 import myapp.com.cityin.network.ActivitiesService.Companion.getDetailsActivitiesByTravelBand
 
 
@@ -100,15 +98,6 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
             mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
             mMap.setMinZoomPreference(15.0f)
 
-            mMap.setOnMapLongClickListener {
-
-                val bundle = Bundle()
-                bundle.putFloat("longitude", longitude.toFloat())
-                bundle.putFloat("latitude", latitude.toFloat())
-                val Map = MapFragmentFullScreen()
-                Map.arguments = bundle
-                Map.show(fragmentManager, "test")
-            }
         }, {
         })
     }

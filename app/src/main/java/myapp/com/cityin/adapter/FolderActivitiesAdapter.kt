@@ -1,14 +1,18 @@
 package myapp.com.cityin.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentManagerNonConfig
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_activity.view.*
 import myapp.com.cityin.R
 import myapp.com.cityin.fragment.WishlistFragment
+import myapp.com.cityin.fragment.wish_list_fragment.DetailsActivitiesFragment
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivities
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivitiesDirections
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandDirections
