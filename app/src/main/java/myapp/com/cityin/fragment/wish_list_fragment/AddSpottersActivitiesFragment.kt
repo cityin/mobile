@@ -1,11 +1,14 @@
 package myapp.com.cityin.fragment.wish_list_fragment
 
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
@@ -48,8 +51,6 @@ class AddSpottersActivitiesFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_add_spotters_activities, container, false)
-
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

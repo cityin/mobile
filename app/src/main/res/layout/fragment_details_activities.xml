@@ -185,30 +185,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/iconActivity"
                     tools:text="Stohrer, la plus ancienne pâtisserie de Paris, a été fondée en 1730 par le pâtissier du roi Louis XV : Nicolas Stohrer. Cette institution de la rue Montorgueil a tout... Afficher la suite" />
 
-                <TextView
-                    android:id="@+id/titleInfoComplementary"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Informations supplémentaires"
-                    android:textColor="#212121"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionActivity" />
 
-                <TextView
-                    android:id="@+id/infoComplementary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="8dp"
-                    android:lineSpacingExtra="8sp"
-                    android:text="Pour des raisons d’hygiènes, vous aurez l’obligation de portez des protèges chaussures, une charlotte et des gants 😊"
-                    android:textColor="#212121"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleInfoComplementary" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -227,15 +204,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:context=".MapsActivity" />
-
-             <TextView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:textSize="8dp"
-                 android:layout_marginTop="8dp"
-                 android:textAlignment="center"
-                 android:textColor="#808080"
-                 android:text="*Cliquez longuement sur la carte pour afficher en pleine écran"/>
 
             </LinearLayout>
 

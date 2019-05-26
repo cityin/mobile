@@ -61,6 +61,7 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
               locationText.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
               durationText.text = "${activities.duration.toString()} heure"
               languageText.text = "${activities.language.toString()}"
+              descriptionText.text = activities.description.toString()
               titleIconText.text = "En savoir plus sur \"${activities.office.name.toString()}\""
         }, {
         })
