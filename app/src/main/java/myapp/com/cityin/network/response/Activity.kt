@@ -10,6 +10,7 @@ class Activity {
     lateinit var office: Office
     lateinit var location: Location
     lateinit var services: Array<*>
+    lateinit var reactions: Array<*>
     lateinit var folderId: String
     lateinit var pictures: Array<String>
     lateinit var activityId: String
