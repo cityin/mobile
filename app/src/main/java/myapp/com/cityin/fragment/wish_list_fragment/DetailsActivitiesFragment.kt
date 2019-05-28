@@ -74,13 +74,14 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
             TimePickerFragment().show(fragmentManager, "timePicker")
         }
 
-        btnSpotters.setOnClickListener {
+        btnAddSpotters.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("travelBandId", travelBandId)
             val fragobj = AddSpottersActivitiesFragment()
             fragobj.arguments = bundle
             fragobj.show(fragmentManager, "OpenFragment")
         }
+
     }
 
 
