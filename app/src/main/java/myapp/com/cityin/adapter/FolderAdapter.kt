@@ -12,7 +12,6 @@ import myapp.com.cityin.fragment.WishlistFragmentDirections
 import myapp.com.cityin.network.response.Folder
 
 class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomViewHolder>() {
-
     // Return numbers of items
     override fun getItemCount(): Int {
         return folders.count()
@@ -31,7 +30,7 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
         val folder = folders.get(position)
 
         holder.itemView.folderTitleTextView.text = folder.name
-        holder.view.folderNumberOfActivitiesTextView.text = "| ${folder.activityCount} activités"
+        holder.view.folderNumberOfActivitiesTextView.text = "-  ${folder.activityCount} activités"
 
         // Use Picasso to set the image url into the cardView
         val cardPicture = holder.itemView.folderImageView

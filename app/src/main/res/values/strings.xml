@@ -13,9 +13,11 @@
     <string name="pick_time">Séléctionner une heure</string>
     <string name="pick_date">Séléctionner une date</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="title_activity_maps">Map</string>
+    <string name="input_search">Rechercher...</string>
+    <string name="search_title">Laissez-vous tenter par une gamme d\'activités</string>
+    <string name="activities_highlight_title">Activités mise en avant</string>
 
     <!-- Google map Key -->
     <string name="google_maps_key">AIzaSyDCeL6TnER8aANU_t8XxOxRHpATG9oZWuc</string>
