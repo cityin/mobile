@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_search.view.*
 import kotlinx.android.synthetic.main.item_category.view.*
 import myapp.com.cityin.R
 import myapp.com.cityin.network.response.Category
 
-class ActivityCategoriesAdapter(val categories: MutableList<Category>): RecyclerView.Adapter<ActivityCategoriesAdapter.ViewHolder>(){
+class ActivityCategoriesAdapter(val categories: Array<Category>): RecyclerView.Adapter<ActivityCategoriesAdapter.ViewHolder>(){
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_category, parent, false)
@@ -28,7 +28,7 @@ class ActivityCategoriesAdapter(val categories: MutableList<Category>): Recycler
 
         holder.view.activity_category_text_view.text = category.name
 
-        Picasso.get().load(category.pictureUrl).into(picture)
+        Picasso.get().load(category.thumbnailUrl).into(picture)
     }
 
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view) {}
