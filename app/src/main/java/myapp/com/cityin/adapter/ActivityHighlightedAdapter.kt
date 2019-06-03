@@ -26,10 +26,7 @@ class ActivityHighlightedAdapter(val activities: Array<Activity>): RecyclerView.
         val activity = activities.get(position)
 
         holder.view.activityNameTextView.text = activity.name
-        holder.view.activityMarkRateTextView.text = activity.mark.toString()
-        holder.view.activityRatingBar.rating = activity.mark.toFloat()
         holder.view.activityPriceTextView.text = "${activity.price.toString()}€ par personnes"
-        holder.view.activityVotesTextView.text = activity.nbVotes.toString()
 
         val cardPicture = holder.view.activityImageView
 

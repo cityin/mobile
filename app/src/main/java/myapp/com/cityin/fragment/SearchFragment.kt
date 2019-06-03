@@ -29,7 +29,7 @@ class SearchFragment : androidx.fragment.app.Fragment() {
 
     }
 
-    private fun getHighlightedActitivities() {
+    private fun getHighlightedActivities() {
         activity_highlights_recycler_view.layoutManager = LinearLayoutManager(context)
 
         ActivitiesService.getHighlightedActivities({
@@ -55,7 +55,7 @@ class SearchFragment : androidx.fragment.app.Fragment() {
 
         getActivityCategories()
 
-        getHighlightedActitivities()
+        getHighlightedActivities()
 
     }
 }

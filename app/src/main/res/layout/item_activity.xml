@@ -47,45 +47,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:text="Prix"
-                app:layout_constraintEnd_toStartOf="@+id/activityMarkRateTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/activityMarkRateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:text="Rate"
-                android:textColor="@color/colorSanMarino"
-                app:layout_constraintBottom_toBottomOf="@+id/activityPriceTextView"
-                app:layout_constraintEnd_toStartOf="@+id/activityRatingBar"
-                app:layout_constraintStart_toEndOf="@+id/activityPriceTextView"
-                app:layout_constraintTop_toTopOf="@+id/activityPriceTextView" />
-
-            <RatingBar
-                android:id="@+id/activityRatingBar"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:numStars="5"
-                android:progressTint="@color/colorSanMarino"
-                android:stepSize="0.1"
-                app:layout_constraintBottom_toBottomOf="@+id/activityMarkRateTextView"
-                app:layout_constraintEnd_toStartOf="@+id/activityVotesTextView"
-                app:layout_constraintStart_toEndOf="@+id/activityMarkRateTextView"
-                app:layout_constraintTop_toTopOf="@+id/activityMarkRateTextView" />
-
-            <TextView
-                android:id="@+id/activityVotesTextView"
-                android:layout_width="25dp"
-                android:layout_height="wrap_content"
-                android:text="Votes"
-                app:layout_constraintBottom_toBottomOf="@+id/activityRatingBar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/activityRatingBar"
-                app:layout_constraintTop_toTopOf="@+id/activityRatingBar" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
