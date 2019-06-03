@@ -18,5 +18,8 @@ class UrlBuilder {
         fun getCategories(): String {
             return "$baseUrl/categories"
         }
+        fun searchActivities(query: String?): String {
+            return "$baseUrl/activities?q=$query"
+        }
     }
 }
