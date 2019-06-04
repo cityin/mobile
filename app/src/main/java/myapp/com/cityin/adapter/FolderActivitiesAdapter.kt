@@ -28,6 +28,7 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
 
         holder.view.activityNameTextView.text = activity.name
         holder.view.activityPriceTextView.text = "${activity.price.toString()}€ par personnes"
+        holder.view.priceActivityTextView.text = "${activity.price}€/pers.s"
 
         val cardPicture = holder.view.activityImageView
 
