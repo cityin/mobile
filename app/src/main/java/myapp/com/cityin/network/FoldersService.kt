@@ -7,15 +7,22 @@ import com.neopixl.spitfire.listener.RequestListener
 import com.neopixl.spitfire.request.BaseRequest
 import myapp.com.cityin.CityInApp
 import myapp.com.cityin.network.response.Folder
+import okhttp3.Headers
+import java.lang.reflect.Parameter
+import com.neopixl.spitfire.model.RequestData
+
+
 
 class FoldersService {
     companion object {
         fun getFolders(success: (folders: Array<Folder>) -> Unit,
                        failure: (VolleyError?) -> Unit) {
             val url = UrlBuilder.travelBand
+            val headers = HashMap<String, String>()
+            headers.put("X-Spotter","bb44e065-04de-43da-864a-3a618852f950")
 
             val request = BaseRequest.Builder<Array<Folder>>(Request.Method.GET,
-                    url, Array<Folder>::class.java).listener(object: RequestListener<Array<Folder>> {
+                    url, Array<Folder>::class.java).headers(headers).listener(object: RequestListener<Array<Folder>> {
                 override fun onSuccess(request: Request<Array<Folder>>, response: NetworkResponse, result: Array<Folder>?) {
                     val folders = result ?: emptyArray()
                     success(folders)

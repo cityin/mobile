@@ -10,8 +10,11 @@ class UrlBuilder {
         fun getSpotterByTravelBand(travelBandId: String): String {
             return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/travel-bands/$travelBandId/spotters"
         }
-        fun getDetailsActivitiesByTravelBand(test: String): String {
-            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/activities/$test"
+        fun getDetailsActivitiesByTravelBand(activityId: String): String {
+            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/activities/$activityId"
+        }
+        fun getAddSpottersTravelBand(name: String): String {
+            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/spotters?q=$name"
         }
     }
 }

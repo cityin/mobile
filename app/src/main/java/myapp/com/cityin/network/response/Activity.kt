@@ -15,9 +15,9 @@ class Activity {
     lateinit var pictures: Array<String>
     lateinit var activityId: String
     lateinit var name: String
-    lateinit var language: String
+    lateinit var languages: Array<String>
     lateinit var travelBandId: String
-    lateinit var category: String
+    lateinit var category: ActivityCategorie
     lateinit var description: String
     lateinit var id: String
 }

@@ -9,6 +9,7 @@ import myapp.com.cityin.CityInApp
 import myapp.com.cityin.network.response.Activity
 import myapp.com.cityin.network.response.Folder
 import myapp.com.cityin.network.response.Spotters
+import okhttp3.OkHttpClient
 
 class SpotterService {
     companion object {
@@ -18,6 +19,27 @@ class SpotterService {
 
             val request = BaseRequest.Builder<Array<Spotters>>(Request.Method.GET,
                     url, Array<Spotters>::class.java).listener(object: RequestListener<Array<Spotters>> {
+                override fun onFailure(request: Request<Array<Spotters>>, response: NetworkResponse?, error: VolleyError?) {
+                    failure(error)
+                }
+
+                override fun onSuccess(request: Request<Array<Spotters>>, response: NetworkResponse, result: Array<Spotters>?) {
+                    val spotters = result ?: emptyArray()
+
+                    success(spotters)
+                }
+            }).build()
+
+            CityInApp.requestQueue.add(request)
+        }
+        fun getAddSpotters(name: String, success: (spotter: Array<Spotters>) -> Unit,
+                        failure: (VolleyError?) -> Unit) {
+            val url = UrlBuilder.getAddSpottersTravelBand(name)
+            val headers = HashMap<String, String>()
+            headers.put("X-Spotter","${name}")
+
+            val request = BaseRequest.Builder<Array<Spotters>>(Request.Method.GET,
+                    url, Array<Spotters>::class.java).headers(headers).listener(object: RequestListener<Array<Spotters>> {
                 override fun onFailure(request: Request<Array<Spotters>>, response: NetworkResponse?, error: VolleyError?) {
                     failure(error)
                 }

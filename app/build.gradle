@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 
+apply plugin: 'com.android.application'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -45,6 +47,7 @@ dependencies {
 
     // Network dependencie
     implementation 'com.neopixl:spitfire:2.0.0-alpha3'
+    implementation 'com.squareup.okhttp3:okhttp:4.0.0-alpha02'
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -53,4 +56,11 @@ dependencies {
 
     //radius Img
     implementation 'com.jcminarro:RoundKornerLayouts:0.2.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-invites:17.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
+
+    //read more
+    implementation 'com.borjabravo:readmoretextview:2.1.0'
 }

@@ -1,23 +1,26 @@
 package myapp.com.cityin.fragment.wish_list_fragment
 
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.borjabravo.readmoretextview.ReadMoreTextView
 import com.google.android.gms.maps.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_details_activities.*
 import myapp.com.cityin.R
-import myapp.com.cityin.fragment.wish_list_fragment.set_Time_Fragment.DatePickerFragment
-import myapp.com.cityin.fragment.wish_list_fragment.set_Time_Fragment.TimePickerFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import myapp.com.cityin.network.ActivitiesService.Companion.getDetailsActivitiesByTravelBand
-
+import java.lang.StringBuilder
 
 class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCallback {
 
@@ -25,7 +28,12 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
     lateinit var activityId: String
     lateinit var travelBandId: String
     private lateinit var mMap: GoogleMap
+    lateinit var langue: ArrayList<String>
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        var context = context
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_details_activities, container, false)
@@ -45,9 +53,9 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
         val nameText: TextView = view!!.findViewById(R.id.nameActivity)
         val locationText: TextView = view!!.findViewById(R.id.textTarget)
         val durationText: TextView = view!!.findViewById(R.id.textTimer)
-        val stuffText: TextView = view!!.findViewById(R.id.textStuff)
         val languageText: TextView = view!!.findViewById(R.id.textLanugage)
-        val descriptionText: TextView = view!!.findViewById(R.id.descriptionActivity)
+        val iconActivity: ImageView = view!!.findViewById(R.id.iconActivity)
+        val enSavoirPlus: ReadMoreTextView = view!!.findViewById(R.id.enSavoirPlusText)
         val titleIconText: TextView = view!!.findViewById(R.id.titleIcon)
 
         activityId = args.activityId
@@ -56,32 +64,33 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
         getDetailsActivitiesByTravelBand(activityId, {
               activities -> activities
 
+            val builder = StringBuilder()
+            for (details in activities.languages) {
+                builder.append(details + ", ")
+            }
+
               Picasso.get().load(activities.pictures[0]).into(imageActivity)
+              Picasso.get().load(activities.office.thumbnailUrl).into(iconActivity)
               nameText.text = activities.name.toString()
               locationText.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
               durationText.text = "${activities.duration.toString()} heure"
-              languageText.text = "${activities.language.toString()}"
-              descriptionText.text = activities.description.toString()
+              enSavoirPlus.text = activities.description.toString()
+              //enSavoirPlus.setTrimExpandedText("Afficher la suite")
+              //enSavoirPlus.setTrimCollapsedText("Montrer moins")
+              //enSavoirPlus.setTrimLines(5)
+              //enSavoirPlus.setColorClickableText(1)
+              languageText.setText(builder.toString())
               titleIconText.text = "En savoir plus sur \"${activities.office.name.toString()}\""
         }, {
         })
 
-        //Call TimePickerDialog
-        btn1.setOnClickListener {
-            DatePickerFragment().show(fragmentManager, "datePicker")
-        }
-        btn2.setOnClickListener {
-            TimePickerFragment().show(fragmentManager, "timePicker")
-        }
+
+
+        val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragmentToAddSpottersActivitiesFragment(travelBandId)
 
         btnAddSpotters.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("travelBandId", travelBandId)
-            val fragobj = AddSpottersActivitiesFragment()
-            fragobj.arguments = bundle
-            fragobj.show(fragmentManager, "OpenFragment")
+            this.findNavController().navigate(action)
         }
-
     }
 
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import myapp.com.cityin.R
@@ -13,14 +14,12 @@ import myapp.com.cityin.adapter.SpotterAdapter
 import myapp.com.cityin.network.SpotterService
 
 
-class AddSpottersActivitiesFragment : androidx.fragment.app.Fragment() {
+class ConfirmAddSpottersActivitiesFragment : DialogFragment() {
 
     lateinit var travelBandId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val bundle = arguments
-        travelBandId = bundle?.getString("travelBandId").toString()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

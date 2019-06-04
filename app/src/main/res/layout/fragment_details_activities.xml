@@ -21,11 +21,11 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="460dp">
+                android:layout_height="430dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:minHeight="460dp"
+                    android:minHeight="490dp"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -40,12 +40,13 @@
                         tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
 
                     <RelativeLayout
+                        android:id="@+id/relativeLayout"
                         android:layout_width="match_parent"
                         android:layout_height="600dp"
                         android:background="@drawable/background_details_activity"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                     <ImageView
@@ -80,15 +81,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageTarget" />
 
-                    <ImageView
-                        android:id="@+id/imageEquipement"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="16dp"
-                        android:src="@drawable/stuff"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageTimer" />
 
                     <ImageView
                         android:id="@+id/imageLanguage"
@@ -98,73 +90,69 @@
                         android:layout_marginLeft="16dp"
                         android:src="@drawable/language"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageEquipement" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageTimer" />
 
                     <TextView
                         android:id="@+id/nameActivity"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingRight="26dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="215dp"
-                        android:lineSpacingExtra="9sp"
-                        android:textColor="#ffffff"
+                        android:layout_marginEnd="8dp"
+                        android:lineHeight="22dp"
+                        android:paddingRight="26dp"
+                        android:textColor="@android:color/background_light"
                         android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="test" />
 
                     <TextView
                         android:id="@+id/textTarget"
-                        android:textSize="14sp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
                         android:textColor="@android:color/background_light"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageTarget"
+                        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
                         app:layout_constraintStart_toEndOf="@+id/imageTarget"
                         app:layout_constraintTop_toTopOf="@+id/imageTarget"
                         tools:text="TextView" />
 
                     <TextView
                         android:id="@+id/textTimer"
-                        android:textSize="14sp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
                         android:textColor="@android:color/background_light"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageTimer"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageTimer"
                         app:layout_constraintTop_toTopOf="@+id/imageTimer"
                         tools:text="TextView" />
 
                     <TextView
-                        android:id="@+id/textStuff"
-                        android:textSize="14sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:textColor="@android:color/background_light"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageEquipement"
-                        app:layout_constraintStart_toEndOf="@+id/imageEquipement"
-                        app:layout_constraintTop_toTopOf="@+id/imageEquipement"
-                        tools:text="TextView" />
-
-                    <TextView
                         android:id="@+id/textLanugage"
-                        android:textSize="14sp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
                         android:textColor="@android:color/background_light"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageLanguage"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageLanguage"
                         app:layout_constraintTop_toTopOf="@+id/imageLanguage"
-                        tools:text="TextView"/>
+                        tools:text="TextView" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -178,109 +166,99 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <ImageView
-                    android:id="@+id/iconActivity"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+                    android:id="@+id/roundKornerRelativeLayout"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_home_black_24dp" />
+                    app:corner_radius="50dp">
+
+                    <ImageView
+                        android:id="@+id/iconActivity"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true" />
+
+                </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
 
                 <TextView
                     android:id="@+id/titleIcon"
-                    android:layout_width="165dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:textColor="#000000"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/colorMineShaft"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/iconActivity"
-                    app:layout_constraintStart_toEndOf="@+id/iconActivity"
-                    app:layout_constraintTop_toTopOf="@+id/iconActivity"
-                    app:layout_constraintVertical_bias="1.0"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/roundKornerRelativeLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/roundKornerRelativeLayout"
                     tools:text="En savoir plus sur, « Stohrer »" />
 
-                <TextView
-                    android:id="@+id/descriptionActivity"
+                <com.borjabravo.readmoretextview.ReadMoreTextView
+                    android:id="@+id/enSavoirPlusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginStart="8dp"
+                    android:lineHeight="24dp"
                     android:lineSpacingExtra="8sp"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
+                    android:text="Stohrer, la plus ancienne pâtisserie de Paris, a été fondée en 1730 par le pâtissier du roi Louis XV : Nicolas Stohrer. Cette institution de la rue Montorgueil a tout... Afficher la suite"
+                    android:textColor="@color/colorMineShaft"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iconActivity"
-                    tools:text="Stohrer, la plus ancienne pâtisserie de Paris, a été fondée en 1730 par le pâtissier du roi Louis XV : Nicolas Stohrer. Cette institution de la rue Montorgueil a tout... Afficher la suite" />
+                    app:layout_constraintTop_toBottomOf="@+id/roundKornerRelativeLayout" />
 
+                <TextView
+                    android:id="@+id/aboutText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:lineHeight="24dp"
+                    android:textColor="@color/colorMineShaft"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="8sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/enSavoirPlusText"
+                    app:layout_constraintTop_toBottomOf="@+id/enSavoirPlusText"
+                    android:text="Informations supplémentaires" />
 
+                <TextView
+                    android:id="@+id/descriptionActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:lineHeight="24dp"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorMineShaft"
+                    app:layout_constraintTop_toBottomOf="@+id/aboutText"
+                    tools:text="description de l'activité"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/map"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_width="match_parent"
-                android:layout_height="225dp"
-                android:layout_marginTop="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:context=".MapsActivity" />
-
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:id="@+id/titleAvailability"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Disponibilités"
-                    android:textColor="#212121"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <Button
-                    android:id="@+id/btn1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/pick_time"
-                    android:textSize="10sp"
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btn2"
-                    app:layout_constraintTop_toTopOf="@+id/btn2" />
-
-                <Button
-                    android:id="@+id/btn2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/pick_date"
-                    android:textSize="10sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/titleAvailability" />
+                    tools:context=".MapsActivity" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
         </LinearLayout>

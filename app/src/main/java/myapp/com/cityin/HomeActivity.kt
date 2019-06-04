@@ -1,6 +1,7 @@
 package myapp.com.cityin
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -20,9 +21,13 @@ class HomeActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         bottomNav.setupWithNavController(navController)
 
+        val suggestions = arrayOf("edouard","hugo","antoine","jérémy")
+        var adapter = ArrayAdapter(this,R.layout.fragment_invite_spotter,suggestions)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, null)
     }
+
 }
