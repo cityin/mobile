@@ -99,6 +99,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="215dp"
                         android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/nunito_bold"
                         android:lineHeight="22dp"
                         android:paddingRight="26dp"
                         android:textColor="@android:color/background_light"
@@ -114,6 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/opensans_regular"
                         android:textColor="@android:color/background_light"
                         android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageTarget"
@@ -128,6 +130,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/opensans_regular"
                         android:textColor="@android:color/background_light"
                         android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageTimer"
@@ -142,6 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/opensans_regular"
                         android:textColor="@android:color/background_light"
                         android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageLanguage"
@@ -189,6 +193,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/nunito_bold"
                     android:textColor="@color/colorMineShaft"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -203,6 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito_regular"
                     android:lineHeight="24dp"
                     android:lineSpacingExtra="8sp"
                     android:text="Stohrer, la plus ancienne pâtisserie de Paris, a été fondée en 1730 par le pâtissier du roi Louis XV : Nicolas Stohrer. Cette institution de la rue Montorgueil a tout... Afficher la suite"
@@ -217,26 +223,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
+                    android:fontFamily="@font/nunito_bold"
                     android:lineHeight="24dp"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Informations supplémentaires"
                     android:textColor="@color/colorMineShaft"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:lineSpacingExtra="8sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/enSavoirPlusText"
-                    app:layout_constraintTop_toBottomOf="@+id/enSavoirPlusText"
-                    android:text="Informations supplémentaires" />
+                    app:layout_constraintTop_toBottomOf="@+id/enSavoirPlusText" />
 
                 <TextView
                     android:id="@+id/descriptionActivity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/nunito_regular"
                     android:lineHeight="24dp"
                     android:lineSpacingExtra="8sp"
                     android:textColor="@color/colorMineShaft"
                     app:layout_constraintTop_toBottomOf="@+id/aboutText"
-                    tools:text="description de l'activité"/>
+                    tools:text="description de l'activité" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

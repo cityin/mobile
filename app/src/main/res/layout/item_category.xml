@@ -17,11 +17,12 @@
         android:scaleType="center"/>
 
     <TextView
+        android:id="@+id/activity_category_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Titre"
-        android:id="@+id/activity_category_text_view"
+        android:fontFamily="@font/nunito_regular"
+        android:textColor="@color/colorMineShaft"
         android:textSize="16dp"
-        android:textColor="@color/colorMineShaft"/>
+        tools:text="Titre" />
 
 </LinearLayout>
