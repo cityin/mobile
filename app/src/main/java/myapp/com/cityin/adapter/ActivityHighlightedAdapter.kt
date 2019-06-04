@@ -11,6 +11,8 @@ import myapp.com.cityin.R
 import myapp.com.cityin.fragment.SearchFragmentDirections
 import myapp.com.cityin.network.response.Activity
 
+val categoryIcons = hashMapOf("party" to R.drawable.ic_local_bar_white_20dp, "sport" to R.drawable.ic_pool_white_20dp, "culture" to R.drawable.ic_culture_white_20dp)
+
 class ActivityHighlightedAdapter(val activities: Array<Activity>): RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder  {
@@ -29,7 +31,12 @@ class ActivityHighlightedAdapter(val activities: Array<Activity>): RecyclerView.
 
         holder.view.activityNameTextView.text = activity.name
         holder.view.priceActivityTextView.text = "${activity.price}€/pers"
+        holder.view.category_name_activity.text = activity.category?.name.capitalize()
 
+        val categoryIcon = categoryIcons[activity.category.name] ?: 0
+        if (categoryIcon != 0) {
+            holder.view.category_icon_activity.setImageResource(categoryIcon)
+        }
         val activityId: String
         activityId = activity.activityId
         val travelBandId: String

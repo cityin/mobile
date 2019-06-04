@@ -16,6 +16,9 @@ class UrlBuilder {
         fun getAddSpottersTravelBand(name: String): String {
             return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/spotters?q=$name"
         }
+        fun getInviteSpotterToTravelBand(travelBandId: String): String {
+            return "$baseUrl/travel-bands/$travelBandId/spotters"
+        }
         fun getHighlightedAcvtivities(): String {
             return "$baseUrl/activities/highlights"
         }

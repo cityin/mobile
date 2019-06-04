@@ -68,5 +68,8 @@
     <fragment
         android:id="@+id/inviteSpottersFragment"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.InviteSpottersFragment"
-        android:label="InviteSpottersFragment" />
+        android:label="InviteSpottersFragment">
+        <argument android:name="travelBandId"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -17,12 +17,16 @@ import myapp.com.cityin.network.response.Spotters
 
 class SpotterAdapter(val spotters: Array<Spotters>): RecyclerView.Adapter<CustomSpotterViewHolder>() {
 
-    // Return numbers of items
+    var listener: SpotterClickedListener? = null
+
+    interface SpotterClickedListener {
+        fun Clicked(spotter: Spotters)
+    }
+
     override fun getItemCount(): Int {
         return spotters.count()
     }
 
-    // How to create a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomSpotterViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_spotters, parent, false)
@@ -30,13 +34,17 @@ class SpotterAdapter(val spotters: Array<Spotters>): RecyclerView.Adapter<Custom
         return CustomSpotterViewHolder(cellFlow)
     }
 
-    // How to bind the data into the view
     override fun onBindViewHolder(holder: CustomSpotterViewHolder, position: Int) {
         val spotter = spotters.get(position)
         val cardPicture = holder.view.imageSpotter
 
         Picasso.get().load(spotter.thumbnailUrl).into(cardPicture)
         holder.view.nameSpotter.text = spotter.username.toString()
+
+        holder.view.setOnClickListener {
+            // If a listener has been provided, trigger clicked event
+            listener?.Clicked(spotter)
+        }
     }
 }
 

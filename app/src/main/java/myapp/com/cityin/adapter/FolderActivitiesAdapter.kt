@@ -29,6 +29,8 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
         holder.view.activityNameTextView.text = activity.name
         holder.view.priceActivityTextView.text = "${activity.price}€/pers"
 
+        holder.view.category_icon_name.visibility = View.INVISIBLE
+
         val cardPicture = holder.view.activityImageView
 
         Picasso.get().load(activity.pictures[0]).into(cardPicture)
