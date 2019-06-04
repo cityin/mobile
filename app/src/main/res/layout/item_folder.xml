@@ -15,31 +15,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        
+        <ImageView
+            android:id="@+id/folderImageView"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[0]"/>
 
-
-                <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
-                    android:id="@+id/roundKornerRelativeLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    app:corner_radius="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
-
-                    <ImageView
-                        android:id="@+id/folderImageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="220dp"
-                        android:scaleType="centerCrop"
-                        tools:srcCompat="@tools:sample/backgrounds/scenic[0]"/>
-
-                </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
-            
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/folderTitleTextView"
@@ -53,17 +39,17 @@
             android:textColor="@color/colorMineShaft"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
             tools:text="Titre" />
 
         <TextView
             android:id="@+id/folderNumberOfActivitiesTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            tools:text="Prix"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:fontFamily="@font/opensans_regular"
+            android:textColor="@color/colorMineShaft"
+            android:text="@string/activities_list"
+            android:layout_marginStart="16dp"
+            tools:text="Prix" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

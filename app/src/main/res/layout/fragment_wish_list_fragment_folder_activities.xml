@@ -46,10 +46,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:textColor="#212121"
-                android:textSize="24dp"
-                android:textStyle="bold"
-                tools:text="title whishlist"/>
+                android:fontFamily="@font/nunito_extra_bold"
+                android:text="@string/activities_list"
+                android:textColor="@color/colorMineShaft"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/descriptionTravelBand"
@@ -58,8 +59,7 @@
                 android:layout_marginTop="8dp"
                 android:textSize="16sp"
                 android:textColor="#212121"
-                android:lineSpacingExtra="8sp"
-                tools:text="description whishlist"/>
+                android:lineSpacingExtra="8sp"/>
 
             <TextView
                 android:id="@+id/folderNumberOfActivitiesTextView"
@@ -89,7 +89,6 @@
                 android:background="@drawable/cta_add_spotter_border"
                 android:orientation="vertical"
                 android:layout_marginTop="12dp"/>
->>>>>>> spotter/whishlist
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/activitiesRecyclerView"

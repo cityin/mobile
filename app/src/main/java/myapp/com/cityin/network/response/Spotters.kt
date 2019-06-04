@@ -3,7 +3,8 @@ package myapp.com.cityin.network.response
 import android.os.Parcel
 import android.os.Parcelable
 
-class Spotters() : Parcelable {
+
+class Spotters():Parcelable  {
 
     lateinit var thumbnailUrl: String
     lateinit var spotterId: String
@@ -37,4 +38,5 @@ class Spotters() : Parcelable {
             return arrayOfNulls(size)
         }
     }
+
 }
