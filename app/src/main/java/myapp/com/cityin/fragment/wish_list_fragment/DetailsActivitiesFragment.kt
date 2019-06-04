@@ -75,22 +75,14 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
               locationText.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
               durationText.text = "${activities.duration.toString()} heure"
               enSavoirPlus.text = activities.description.toString()
-              //enSavoirPlus.setTrimExpandedText("Afficher la suite")
-              //enSavoirPlus.setTrimCollapsedText("Montrer moins")
-              //enSavoirPlus.setTrimLines(5)
-              //enSavoirPlus.setColorClickableText(1)
               languageText.setText(builder.toString())
               titleIconText.text = "En savoir plus sur \"${activities.office.name.toString()}\""
-        }, {
-        })
+        }, {})
 
-
-
-        val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragmentToAddSpottersActivitiesFragment(travelBandId)
-
-        btnAddSpotters.setOnClickListener {
-            this.findNavController().navigate(action)
+        btnBack.setOnClickListener {
+            this.findNavController().popBackStack()
         }
+
     }
 
 

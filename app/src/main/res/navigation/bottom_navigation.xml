@@ -31,7 +31,8 @@
             app:destination="@id/detailsActivitiesFragment" />
         <argument
             android:name="folderName"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="test" />
         <argument
             android:name="folderActivity"
             app:argType="long" />
@@ -40,6 +41,9 @@
             app:argType="string" />
         <argument android:name="folderSpotter"
             app:argType="myapp.com.cityin.network.response.Spotters[]" />
+        <action
+            android:id="@+id/action_wishListFragmentTravelBandActivities_to_addSpottersActivitiesFragment"
+            app:destination="@id/addSpottersActivitiesFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsActivitiesFragment"
@@ -50,15 +54,12 @@
         <argument
             android:name="travelBandId"
             app:argType="string" />
-        <action
-            android:id="@+id/action_detailsActivitiesFragment_to_addSpottersActivitiesFragment"
-            app:destination="@id/addSpottersActivitiesFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSpottersActivitiesFragment"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.AddSpottersActivitiesFragment"
         android:label="AddSpottersActivitiesFragment" >
-        <argument android:name="travelBandId"
+        <argument android:name="folderId"
             app:argType="string" />
         <action
             android:id="@+id/action_addSpottersActivitiesFragment_to_inviteSpottersFragment"

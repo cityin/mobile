@@ -17,6 +17,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="24dp"
+                    android:background="@color/colorWhite"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_back_black_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/settingsBtn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/ic_settings_black_24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <TextView
                 android:id="@+id/TitleTravelBand"
                 android:layout_width="match_parent"
@@ -47,12 +71,17 @@
                 android:lineSpacingExtra="8sp"
                 tools:text="TextView" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ItemsSpotterRecyclerView"
-                android:layout_marginTop="8dp"
+            <LinearLayout
+                android:id="@+id/containerItemsSpotter"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ItemsSpotterRecyclerView"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

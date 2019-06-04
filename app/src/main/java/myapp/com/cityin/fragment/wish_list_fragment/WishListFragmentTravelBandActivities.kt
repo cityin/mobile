@@ -5,19 +5,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.core.view.ViewCompat
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_wish_list_fragment_folder_activities.*
-import kotlinx.android.synthetic.main.fragment_wishlist.*
-import kotlinx.android.synthetic.main.item_activity.*
 import myapp.com.cityin.R
 import myapp.com.cityin.adapter.FolderActivitiesAdapter
-import myapp.com.cityin.adapter.FolderAdapter
 import myapp.com.cityin.adapter.SpotterItemsAdapter
 import myapp.com.cityin.network.ActivitiesService
-import myapp.com.cityin.network.FoldersService
 import myapp.com.cityin.network.response.Spotters
+
 
 class WishListFragmentTravelBandActivities : androidx.fragment.app.Fragment() {
     val args: WishListFragmentTravelBandActivitiesArgs by navArgs()
@@ -32,6 +31,10 @@ class WishListFragmentTravelBandActivities : androidx.fragment.app.Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        backBtn.setOnClickListener {
+            this.findNavController().popBackStack()
+        }
 
         folderId = args.folderId
         folderName = args.folderName
@@ -49,13 +52,23 @@ class WishListFragmentTravelBandActivities : androidx.fragment.app.Fragment() {
 
         activitiesRecyclerView.layoutManager = LinearLayoutManager(context)
 
+        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivitiesToAddSpottersActivitiesFragment(folderId)
+
+        settingsBtn.setOnClickListener {
+            this.findNavController().navigate(action)
+        }
+
+        containerItemsSpotter.setOnClickListener {
+            this.findNavController().navigate(action)
+        }
+
         ActivitiesService.getActivitiesByTravelBandId(folderId, {
             activities -> activities.size
             activitiesRecyclerView?.adapter = FolderActivitiesAdapter(activities)
 
             ViewCompat.setNestedScrollingEnabled(activitiesRecyclerView, false);
-        }, {
+        }, {})
 
-        })
+
     }
 }
