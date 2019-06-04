@@ -37,7 +37,7 @@ class ConfirmAddSpottersActivitiesFragment : DialogFragment() {
 
         })
 
-        val action = AddSpottersActivitiesFragmentDirections.actionAddSpottersActivitiesFragmentToInviteSpottersFragment()
+        val action = AddSpottersActivitiesFragmentDirections.actionAddSpottersActivitiesFragmentToInviteSpottersFragment(travelBandId)
 
         addSpotter.setOnClickListener {
             this.findNavController().navigate(action)

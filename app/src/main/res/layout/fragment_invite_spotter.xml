@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnCloseInviteFragment" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/search_spotter_name"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginTop="16dp"
@@ -43,13 +43,13 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/spotterRecyclerView"
+        android:id="@+id/found_spotters_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/search_spotter_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ import myapp.com.cityin.network.response.Spotters
 import okhttp3.internal.notifyAll
 
 
-class SpotterAddAdapter(val spotters: Array<Spotters>): RecyclerView.Adapter<CustomAddSpotterViewHolder>() {
+class SpotterAutoCompleteAdapter(val spotters: Array<Spotters>): RecyclerView.Adapter<CustomAddSpotterViewHolder>() {
 
     // Return numbers of items
     override fun getItemCount(): Int {

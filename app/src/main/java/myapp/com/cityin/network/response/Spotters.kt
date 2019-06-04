@@ -10,6 +10,7 @@ class Spotters():Parcelable  {
     lateinit var spotterId: String
     lateinit var username: String
     lateinit var email: String
+    var travelBands: Array<String> = arrayOf("")
 
     constructor(parcel: Parcel) : this() {
         thumbnailUrl = parcel.readString()

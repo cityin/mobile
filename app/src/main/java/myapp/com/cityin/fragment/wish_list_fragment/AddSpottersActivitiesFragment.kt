@@ -39,9 +39,10 @@ class AddSpottersActivitiesFragment : androidx.fragment.app.Fragment() {
 
         })
 
-        val action = AddSpottersActivitiesFragmentDirections.actionAddSpottersActivitiesFragmentToInviteSpottersFragment()
+        val action = AddSpottersActivitiesFragmentDirections.actionAddSpottersActivitiesFragmentToInviteSpottersFragment(folderId)
 
         addSpotter.setOnClickListener {
+            // pass Travel Band ID
             this.findNavController().navigate(action)
         }
 
