@@ -33,7 +33,6 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var context = context
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

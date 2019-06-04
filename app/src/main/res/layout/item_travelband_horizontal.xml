@@ -23,6 +23,6 @@
         android:fontFamily="@font/nunito_bold"
         android:textColor="@color/colorMineShaft"
         android:textSize="18dp"
-        tools:text="Titre" />
+        tools:text="@string/item_travelBand_horizontal" />
 
 </LinearLayout>

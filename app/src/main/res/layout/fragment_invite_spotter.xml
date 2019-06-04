@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/nunito_extra_bold"
-        android:text="Ajouter un membre"
+        android:text="@string/invite_spotter_title"
         android:textColor="#212121"
         android:textSize="24dp"
         android:textStyle="bold"

@@ -117,7 +117,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="test" />
+                        tools:text="@string/activity_details_name" />
 
                     <TextView
                         android:id="@+id/textTarget"
@@ -132,7 +132,7 @@
                         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
                         app:layout_constraintStart_toEndOf="@+id/imageTarget"
                         app:layout_constraintTop_toTopOf="@+id/imageTarget"
-                        tools:text="TextView" />
+                        tools:text="@string/activity_details_location" />
 
                     <TextView
                         android:id="@+id/textTimer"
@@ -147,7 +147,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageTimer"
                         app:layout_constraintTop_toTopOf="@+id/imageTimer"
-                        tools:text="TextView" />
+                        tools:text="@string/activity_details_duration" />
 
                     <TextView
                         android:id="@+id/textLanugage"
@@ -162,7 +162,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageLanguage"
                         app:layout_constraintTop_toTopOf="@+id/imageLanguage"
-                        tools:text="TextView" />
+                        tools:text="@string/activity_details_language" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
@@ -211,7 +211,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/roundKornerRelativeLayout"
                     app:layout_constraintTop_toBottomOf="@+id/roundKornerRelativeLayout"
-                    tools:text="En savoir plus sur, « Stohrer »" />
+                    tools:text="@string/activity_details_about" />
 
                 <com.borjabravo.readmoretextview.ReadMoreTextView
                     android:id="@+id/enSavoirPlusText"
@@ -221,7 +221,7 @@
                     android:fontFamily="@font/nunito_regular"
                     android:lineHeight="24dp"
                     android:lineSpacingExtra="8sp"
-                    android:text="Stohrer, la plus ancienne pâtisserie de Paris, a été fondée en 1730 par le pâtissier du roi Louis XV : Nicolas Stohrer. Cette institution de la rue Montorgueil a tout... Afficher la suite"
+                    android:text="@string/activity_details_description"
                     android:textColor="@color/colorMineShaft"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -236,7 +236,7 @@
                     android:fontFamily="@font/nunito_bold"
                     android:lineHeight="24dp"
                     android:lineSpacingExtra="8sp"
-                    android:text="Informations supplémentaires"
+                    android:text="@string/activity_details_about_details"
                     android:textColor="@color/colorMineShaft"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -254,7 +254,7 @@
                     android:lineSpacingExtra="8sp"
                     android:textColor="@color/colorMineShaft"
                     app:layout_constraintTop_toBottomOf="@+id/aboutText"
-                    tools:text="description de l'activité" />
+                    tools:text="@string/activity_details_about_details_description" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

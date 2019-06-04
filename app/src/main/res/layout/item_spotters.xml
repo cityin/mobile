@@ -58,7 +58,7 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="TextView" />
+                tools:text="@string/item_category_name" />
 
             <LinearLayout
                 android:layout_width="match_parent"

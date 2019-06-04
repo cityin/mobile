@@ -23,6 +23,6 @@
         android:fontFamily="@font/nunito_regular"
         android:textColor="@color/colorMineShaft"
         android:textSize="16dp"
-        tools:text="Titre" />
+        tools:text="@string/item_category_title" />
 
 </LinearLayout>

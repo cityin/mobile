@@ -24,7 +24,7 @@ class SpotterAdapter(val spotters: Array<Spotters>): RecyclerView.Adapter<Custom
 
     // How to create a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomSpotterViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+        val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_spotters, parent, false)
 
         return CustomSpotterViewHolder(cellFlow)

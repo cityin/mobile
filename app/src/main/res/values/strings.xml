@@ -10,10 +10,43 @@
     <string name="activities_list">Liste d\'activités</string>
     <string name="incoming_list">Mes Whishlist</string>
 
-    <string name="pick_time">Séléctionner une heure</string>
-    <string name="pick_date">Séléctionner une date</string>
+    <!-- Spotter auto Complete -->
+    <string name="spotter_auto_complete">nom du spotter</string>
 
+    <!-- Item travelBand horizontal -->
+    <string name="item_travelBand_horizontal">title item</string>
 
+    <!-- Item spotters -->
+    <string name="item_category_name">Nom du spotter</string>
+
+    <!-- Item category -->
+    <string name="item_category_title">Nom de l\'activité</string>
+
+    <!-- Item folder -->
+    <string name="item_folder_title">Nom de l\'activité</string>
+    <string name="item_folder_prix">Prix</string>
+
+    <!-- Details Activity -->
+    <string name="activity_details_name">Nom de l\'activité</string>
+    <string name="activity_details_location">Localisation de l\'activité</string>
+    <string name="activity_details_duration">Durée de l\'activité</string>
+    <string name="activity_details_language">Langue de l\'activité</string>
+    <string name="activity_details_about">About de l\'activité</string>
+    <string name="activity_details_description">Description activité</string>
+    <string name="activity_details_about_details">Informations supplémentaires</string>
+    <string name="activity_details_about_details_description">Informations supplémentaires description</string>
+
+    <!-- Wishlist folder_activities -->
+    <string name="Wishlist_folder_activities_number">nombre d\'activité</string>
+
+    <!-- Item activity -->
+    <string name="item_activity_price">Prix de l\'activité</string>
+    <string name="item_activity_title">Tilte de l\'activité</string>
+
+    <!-- Invite Activity -->
+    <string name="invite_spotter_title">Ajouter un membre</string>
+
+    <!-- Research Activity -->
     <string name="title_activity_maps">Map</string>
     <string name="input_search">Rechercher...</string>
     <string name="search_title">Laissez-vous tenter par une gamme d\'activités</string>
@@ -26,6 +59,10 @@
     <string name="create_wishlist_optionnal">(optionnel)</string>
     <string name="create_wishlist_action">Créer la wishlist</string>
     <string name="create_wishlist_invalid">Le nom de la wishlist doit contenir au moins 3 caractères</string>
+
+    <!-- Add Spotters -->
+    <string name="add_spotter_title">Membres</string>
+    <string name="add_spotter_cta">+  Ajouter des membres</string>
 
     <!-- Share Activity -->
     <string name="share_activity_title">Ajouter dans une wishlist</string>
