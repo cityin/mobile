@@ -25,6 +25,17 @@
         <action
             android:id="@+id/action_wishListFragmentTravelBandActivities_to_detailsActivitiesFragment"
             app:destination="@id/detailsActivitiesFragment" />
+        <argument
+            android:name="folderName"
+            app:argType="string" />
+        <argument
+            android:name="folderActivity"
+            app:argType="long" />
+        <argument
+            android:name="folderDescription"
+            app:argType="string" />
+        <argument android:name="folderSpotter"
+            app:argType="myapp.com.cityin.network.response.Spotters[]" />
     </fragment>
     <fragment
         android:id="@+id/detailsActivitiesFragment"
