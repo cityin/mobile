@@ -9,8 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import com.borjabravo.readmoretextview.ReadMoreTextView
 import com.google.android.gms.maps.*
@@ -19,10 +18,11 @@ import kotlinx.android.synthetic.main.fragment_details_activities.*
 import myapp.com.cityin.R
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import myapp.com.cityin.fragment.activity_fragment.ShareActivityFragment
 import myapp.com.cityin.network.ActivitiesService.Companion.getDetailsActivitiesByTravelBand
 import java.lang.StringBuilder
 
-class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCallback {
+class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
 
     val args: DetailsActivitiesFragmentArgs by navArgs()
     lateinit var activityId: String
@@ -89,7 +89,9 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
         val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragmentToAddSpottersActivitiesFragment(travelBandId)
 
         btnAddSpotters.setOnClickListener {
-            this.findNavController().navigate(action)
+            val bottomSheet = ShareActivityFragment(activityId)
+            bottomSheet.setTargetFragment(this, 0)
+            bottomSheet.show(fragmentManager, "ShareActivityBottonSheetDialog")
         }
     }
 

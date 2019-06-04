@@ -32,7 +32,6 @@ class WishlistFragment : androidx.fragment.app.Fragment(), CreateWishlistDialog.
 
         // set up click on add
         add_wishlist_icon.setOnClickListener {
-            Log.d("test", "add clicked")
             val dialog = CreateWishlistDialog()
             dialog.setTargetFragment(this, 0)
             dialog.show(fragmentManager, "CreateWishlistDialog")
@@ -42,6 +41,7 @@ class WishlistFragment : androidx.fragment.app.Fragment(), CreateWishlistDialog.
     private fun loadTravelBands() {
         FoldersService.getFolders({
             folders -> folders.size
+            Log.d("test", "${folders.size}")
             foldersRecyclerView.adapter = FolderAdapter(folders)
 
             ViewCompat.setNestedScrollingEnabled(foldersRecyclerView, false)

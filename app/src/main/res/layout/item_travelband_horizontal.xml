@@ -20,9 +20,9 @@
         android:id="@+id/travel_band_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_regular"
+        android:fontFamily="@font/nunito_bold"
         android:textColor="@color/colorMineShaft"
-        android:textSize="16dp"
+        android:textSize="18dp"
         tools:text="Titre" />
 
 </LinearLayout>

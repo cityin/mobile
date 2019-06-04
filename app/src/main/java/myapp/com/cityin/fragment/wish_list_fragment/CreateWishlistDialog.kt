@@ -18,12 +18,8 @@ class CreateWishlistDialog: DialogFragment() {
 
     var travelBandCreated = false
 
-    // Use this instance of the interface to deliver action events
     internal lateinit var listener: NoticeDialogListener
 
-    /* The activity that creates an instance of this dialog fragment must
-     * implement this interface in order to receive event callbacks.
-     * Each method passes the DialogFragment in case the host needs to query it. */
     interface NoticeDialogListener {
         fun onDialogDismissSuccessfully(dialog: DialogFragment)
     }

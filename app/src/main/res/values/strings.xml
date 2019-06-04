@@ -27,6 +27,9 @@
     <string name="create_wishlist_action">Créer la wishlist</string>
     <string name="create_wishlist_invalid">Le nom de la wishlist doit contenir au moins 3 caractères</string>
 
+    <!-- Share Activity -->
+    <string name="share_activity_title">Ajouter dans une wishlist</string>
+
     <!-- Google map Key -->
     <string name="google_maps_key">AIzaSyDCeL6TnER8aANU_t8XxOxRHpATG9oZWuc</string>
 
