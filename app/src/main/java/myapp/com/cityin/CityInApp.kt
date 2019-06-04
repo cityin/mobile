@@ -6,8 +6,10 @@ import com.android.volley.toolbox.Volley
 
 class CityInApp: Application() {
 
+
     companion object {
         lateinit var requestQueue: RequestQueue
+        val spotterId = "bb44e065-04de-43da-864a-3a618852f950"
     }
 
     override fun onCreate() {
