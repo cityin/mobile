@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_search.*
+import myapp.com.cityin.CityInApp
 import myapp.com.cityin.R
 import myapp.com.cityin.adapter.ActivityCategoriesAdapter
 import myapp.com.cityin.adapter.ActivityHighlightedAdapter
 import myapp.com.cityin.network.ActivitiesService
 import myapp.com.cityin.network.CategoriesService
+import java.util.*
+import kotlin.concurrent.schedule
 
 class SearchFragment : androidx.fragment.app.Fragment() {
 
@@ -45,31 +48,35 @@ class SearchFragment : androidx.fragment.app.Fragment() {
     }
 
     private fun searchActivities(s: Editable?) {
+        CityInApp.requestQueue.cancelAll(this)
+
         search_results_recycler_view.layoutManager = LinearLayoutManager(context)
 
-        ActivitiesService.searchActivitiesByQueryText(s?.toString(), {
-            activities -> activities.size
-            search_results_recycler_view.adapter = ActivityHighlightedAdapter(activities)
+        Timer().schedule(500
+        ) {
+            ActivitiesService.searchActivitiesByQueryText(s?.toString(), {
+                activities -> activities.size
+                search_results_recycler_view.adapter = ActivityHighlightedAdapter(activities)
 
-            ViewCompat.setNestedScrollingEnabled(search_results_recycler_view, false)
+                ViewCompat.setNestedScrollingEnabled(search_results_recycler_view, false)
 
-        }, {
+            }, {
 
-        })
+            })
+        }
     }
 
     private fun hideViews() {
-        search_container.visibility = View.GONE
-        search_results.visibility = View.VISIBLE
-
+        search_activity_title.visibility = View.GONE
+        activity_highlights_recycler_view.visibility = View.GONE
+        search_results_recycler_view.visibility = View.VISIBLE
     }
 
     private fun displayViews() {
-        search_container.visibility = View.VISIBLE
-        search_results.visibility = View.GONE
+        search_activity_title.visibility = View.VISIBLE
+        activity_highlights_recycler_view.visibility = View.VISIBLE
+        search_results_recycler_view.visibility = View.GONE
     }
-
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
@@ -78,11 +85,9 @@ class SearchFragment : androidx.fragment.app.Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
         getActivityCategories()
 
         getHighlightedActivities()
-
 
         search_input.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
