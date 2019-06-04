@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.item_folder.view.*
 import myapp.com.cityin.R
 import myapp.com.cityin.fragment.WishlistFragmentDirections
 import myapp.com.cityin.network.response.Folder
+import myapp.com.cityin.network.response.Spotters
 
 class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomViewHolder>() {
     // Return numbers of items
@@ -41,10 +42,18 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
 
 
         val folderId: String
+        val folderName: String
+        val folderActivity: Long
+        val folderDescription: String
+        val folderSpotter: Array<Spotters>
 
         folderId = folder.travelBandId
+        folderName = folder.name
+        folderActivity = folder.activityCount.toLong()
+        folderDescription = folder.description
+        folderSpotter = folder.spotters
 
-        val action = WishlistFragmentDirections.actionWishlistFragmentToWishListFragmentTravelBandActivities(folderId)
+        val action = WishlistFragmentDirections.actionWishlistFragmentToWishListFragmentTravelBandActivities(folderId,folderName,folderActivity,folderDescription,folderSpotter)
         holder.view.setOnClickListener{
             it.findNavController().navigate(action)
         }

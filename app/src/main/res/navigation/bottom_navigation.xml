@@ -6,7 +6,11 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="myapp.com.cityin.fragment.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailsActivitiesFragment3"
+            app:destination="@id/detailsActivitiesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/wishlistFragment"
         android:name="myapp.com.cityin.fragment.WishlistFragment"
@@ -25,6 +29,21 @@
         <action
             android:id="@+id/action_wishListFragmentTravelBandActivities_to_detailsActivitiesFragment"
             app:destination="@id/detailsActivitiesFragment" />
+        <argument
+            android:name="folderName"
+            app:argType="string"
+            android:defaultValue="test" />
+        <argument
+            android:name="folderActivity"
+            app:argType="long" />
+        <argument
+            android:name="folderDescription"
+            app:argType="string" />
+        <argument android:name="folderSpotter"
+            app:argType="myapp.com.cityin.network.response.Spotters[]" />
+        <action
+            android:id="@+id/action_wishListFragmentTravelBandActivities_to_addSpottersActivitiesFragment"
+            app:destination="@id/addSpottersActivitiesFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsActivitiesFragment"
@@ -35,15 +54,12 @@
         <argument
             android:name="travelBandId"
             app:argType="string" />
-        <action
-            android:id="@+id/action_detailsActivitiesFragment_to_addSpottersActivitiesFragment"
-            app:destination="@id/addSpottersActivitiesFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSpottersActivitiesFragment"
         android:name="myapp.com.cityin.fragment.wish_list_fragment.AddSpottersActivitiesFragment"
         android:label="AddSpottersActivitiesFragment" >
-        <argument android:name="travelBandId"
+        <argument android:name="folderId"
             app:argType="string" />
         <action
             android:id="@+id/action_addSpottersActivitiesFragment_to_inviteSpottersFragment"

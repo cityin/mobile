@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+        android:id="@+id/roundKornerRelativeLayout"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        app:corner_radius="50dp">
+
+        <ImageView
+            android:id="@+id/imageSpotter"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+
+</LinearLayout>

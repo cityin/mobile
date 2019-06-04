@@ -19,6 +19,17 @@
     <string name="search_title">Laissez-vous tenter par une gamme d\'activités</string>
     <string name="activities_highlight_title">Activités mise en avant</string>
 
+    <!-- Create Wishlist -->
+    <string name="create_wishlist_title">Créer une wishlist</string>
+    <string name="create_wishlist_name">Titre</string>
+    <string name="create_wishlist_description">Description</string>
+    <string name="create_wishlist_optionnal">(optionnel)</string>
+    <string name="create_wishlist_action">Créer la wishlist</string>
+    <string name="create_wishlist_invalid">Le nom de la wishlist doit contenir au moins 3 caractères</string>
+
+    <!-- Share Activity -->
+    <string name="share_activity_title">Ajouter dans une wishlist</string>
+
     <!-- Google map Key -->
     <string name="google_maps_key">AIzaSyDCeL6TnER8aANU_t8XxOxRHpATG9oZWuc</string>
 
