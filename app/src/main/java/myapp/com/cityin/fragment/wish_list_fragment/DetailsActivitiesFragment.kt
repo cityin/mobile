@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.findNavController
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.borjabravo.readmoretextview.ReadMoreTextView
@@ -19,10 +19,11 @@ import kotlinx.android.synthetic.main.fragment_details_activities.*
 import myapp.com.cityin.R
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import myapp.com.cityin.fragment.activity_fragment.ShareActivityFragment
 import myapp.com.cityin.network.ActivitiesService.Companion.getDetailsActivitiesByTravelBand
 import java.lang.StringBuilder
 
-class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCallback {
+class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCallback {
 
     val args: DetailsActivitiesFragmentArgs by navArgs()
     lateinit var activityId: String
@@ -48,15 +49,9 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        // Bind data
+
         val imageActivity: ImageView = view!!.findViewById(R.id.imageActivity)
-        val nameText: TextView = view!!.findViewById(R.id.nameActivity)
-        val locationText: TextView = view!!.findViewById(R.id.textTarget)
-        val durationText: TextView = view!!.findViewById(R.id.textTimer)
-        val languageText: TextView = view!!.findViewById(R.id.textLanugage)
         val iconActivity: ImageView = view!!.findViewById(R.id.iconActivity)
-        val enSavoirPlus: ReadMoreTextView = view!!.findViewById(R.id.enSavoirPlusText)
-        val titleIconText: TextView = view!!.findViewById(R.id.titleIcon)
 
         activityId = args.activityId
         travelBandId = args.travelBandId
@@ -71,26 +66,28 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
 
               Picasso.get().load(activities.pictures[0]).into(imageActivity)
               Picasso.get().load(activities.office.thumbnailUrl).into(iconActivity)
-              nameText.text = activities.name.toString()
-              locationText.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
-              durationText.text = "${activities.duration.toString()} heure"
-              enSavoirPlus.text = activities.description.toString()
-              //enSavoirPlus.setTrimExpandedText("Afficher la suite")
-              //enSavoirPlus.setTrimCollapsedText("Montrer moins")
-              //enSavoirPlus.setTrimLines(5)
-              //enSavoirPlus.setColorClickableText(1)
-              languageText.setText(builder.toString())
-              titleIconText.text = "En savoir plus sur \"${activities.office.name.toString()}\""
+
+            nameActivity.text = activities.name.toString()
+            textTarget.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
+            textTimer.text = "${activities.duration.toString()} heure"
+            enSavoirPlusText.text = activities.description.toString()
+            textLanugage.setText(builder.toString())
+            titleIcon.text = "En savoir plus sur \"${activities.office.name.toString()}\""
         }, {
         })
 
 
-
-        val action = DetailsActivitiesFragmentDirections.actionDetailsActivitiesFragmentToAddSpottersActivitiesFragment(travelBandId)
-
         btnAddSpotters.setOnClickListener {
-            this.findNavController().navigate(action)
+            val bottomSheet = ShareActivityFragment(activityId)
+            bottomSheet.setTargetFragment(this, 0)
+            bottomSheet.show(fragmentManager, "ShareActivityBottonSheetDialog")
+
         }
+
+        btnBack.setOnClickListener {
+            this.findNavController().popBackStack()
+        }
+
     }
 
 

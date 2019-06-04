@@ -33,5 +33,8 @@ class UrlBuilder {
 
             return "$baseUrl/activities?q=$query"
         }
+        fun shareActivity(activityId: String): String {
+            return "$baseUrl/activities/$activityId/share"
+        }
     }
 }

@@ -12,26 +12,89 @@
         android:fillViewport="true">
 
         <LinearLayout
+            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="24dp"
+                    android:background="@color/colorWhite"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_back_black_24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/settingsBtn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/ic_settings_black_24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:id="@+id/TitleTravelBand"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:fontFamily="@font/nunito_extra_bold"
                 android:text="@string/activities_list"
                 android:textColor="@color/colorMineShaft"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/descriptionTravelBand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:lineSpacingExtra="8sp"/>
+
+            <TextView
+                android:id="@+id/folderNumberOfActivitiesTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:lineSpacingExtra="8sp"
+                tools:text="TextView" />
+
+            <LinearLayout
+                android:id="@+id/containerItemsSpotter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ItemsSpotterRecyclerView"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@drawable/cta_add_spotter_border"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/activitiesRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="24dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

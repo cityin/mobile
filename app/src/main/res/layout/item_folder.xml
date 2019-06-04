@@ -2,49 +2,54 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/folderLayout"
+    android:id="@+id/activityLayoutCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="24dp"
-    android:orientation="vertical">
+    android:layout_marginBottom="24dp">
 
-    <ImageView
-        android:id="@+id/folderImageView"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/folderTitleTextView"
-        app:layout_constraintDimensionRatio=""
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/folderTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        tools:text="TextView"
-        android:textColor="@color/colorMineShaft"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/folderImageView" />
+        
+        <ImageView
+            android:id="@+id/folderImageView"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[0]"/>
 
-    <TextView
-        android:id="@+id/folderNumberOfActivitiesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginStart="16dp"
-        android:maxWidth="190dp"
-        android:textSize="16dp"
-        android:maxLines="1"
-        tools:text="TextView"
-        android:textColor="@color/colorMineShaft"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/folderTitleTextView" />
+
+        <TextView
+            android:id="@+id/folderTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="2"
+            android:textColor="@color/colorMineShaft"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Titre" />
+
+        <TextView
+            android:id="@+id/folderNumberOfActivitiesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:textColor="@color/colorMineShaft"
+            android:text="@string/activities_list"
+            android:layout_marginStart="16dp"
+            tools:text="Prix" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

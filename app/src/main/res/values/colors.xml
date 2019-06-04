@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#304ffe</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorMineShaft">#212121</color>
@@ -8,4 +8,6 @@
     <color name="colorSanMarino">#3F51B5</color>
     <color name="colorAlto">#e0e0e0</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorDarkGray">#d8d8d8</color>
+    <color name="colorDanger">#f53535</color>
 </resources>

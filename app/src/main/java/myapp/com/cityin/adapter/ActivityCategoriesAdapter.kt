@@ -24,9 +24,9 @@ class ActivityCategoriesAdapter(val categories: Array<Category>): RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category = categories.get(position)
-        val picture = holder.view.activity_category_image_view
+        val picture = holder.view.travel_band_image_view
 
-        holder.view.activity_category_text_view.text = category.name
+        holder.view.travel_band_title.text = category.name
 
         Picasso.get().load(category.thumbnailUrl).into(picture)
     }
