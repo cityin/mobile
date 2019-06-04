@@ -3,14 +3,18 @@ package myapp.com.cityin.network
 class UrlBuilder {
     companion object {
         val baseUrl = "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging"
-        val travelBand = "$baseUrl/travel-bands"
-        val foldersUrl = "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/travel-bands/15a992e1-8d3f-421e-99a3-2ba5d2131d09/folders"
-        val suggestionsUrl = "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/travel-bands/15a992e1-8d3f-421e-99a3-2ba5d2131d09/activities"
+        val travelBand = "${baseUrl}/travel-bands"
         fun getActivitiesByTravelBand(travelBandId: String): String {
             return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/travel-bands/$travelBandId/activities"
         }
-        fun getDetailsActivitiesByTravelBand(test: String): String {
-            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/activities/$test"
+        fun getSpotterByTravelBand(travelBandId: String): String {
+            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/travel-bands/$travelBandId/spotters"
+        }
+        fun getDetailsActivitiesByTravelBand(activityId: String): String {
+            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/activities/$activityId"
+        }
+        fun getAddSpottersTravelBand(name: String): String {
+            return "https://zi2xbgt2s3.execute-api.eu-west-1.amazonaws.com/staging/spotters?q=$name"
         }
         fun getHighlightedAcvtivities(): String {
             return "$baseUrl/activities/highlights"

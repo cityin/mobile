@@ -32,16 +32,25 @@
         android:label="DetailsActivitiesFragment" >
         <argument android:name="activityId"
             app:argType="string" />
+        <argument
+            android:name="travelBandId"
+            app:argType="string" />
         <action
-            android:id="@+id/action_detailsActivitiesFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            android:id="@+id/action_detailsActivitiesFragment_to_addSpottersActivitiesFragment"
+            app:destination="@id/addSpottersActivitiesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mapFragment"
-        android:name="myapp.com.cityin.fragment.wish_list_fragment.maps_fragment.MapFragment"
-        android:label="MapFragment" >
-        <argument
-            android:name="test"
+        android:id="@+id/addSpottersActivitiesFragment"
+        android:name="myapp.com.cityin.fragment.wish_list_fragment.AddSpottersActivitiesFragment"
+        android:label="AddSpottersActivitiesFragment" >
+        <argument android:name="travelBandId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_addSpottersActivitiesFragment_to_inviteSpottersFragment"
+            app:destination="@id/inviteSpottersFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/inviteSpottersFragment"
+        android:name="myapp.com.cityin.fragment.wish_list_fragment.InviteSpottersFragment"
+        android:label="InviteSpottersFragment" />
 </navigation>

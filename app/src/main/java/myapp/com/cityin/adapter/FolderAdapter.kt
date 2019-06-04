@@ -28,9 +28,11 @@ class FolderAdapter(val folders: Array<Folder>): RecyclerView.Adapter<CustomView
     // How to bind the data into the view
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val folder = folders.get(position)
+        val members = folder.spotters.size
 
         holder.itemView.folderTitleTextView.text = folder.name
-        holder.view.folderNumberOfActivitiesTextView.text = "-  ${folder.activityCount} activités"
+
+        holder.view.folderNumberOfActivitiesTextView.text = "${folder.activityCount} activités - ${members} membres"
 
         // Use Picasso to set the image url into the cardView
         val cardPicture = holder.itemView.folderImageView

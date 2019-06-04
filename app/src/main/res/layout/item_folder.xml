@@ -11,9 +11,7 @@
     <ImageView
         android:id="@+id/folderImageView"
         android:layout_width="0dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="220dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/folderTitleTextView"
         app:layout_constraintDimensionRatio=""
@@ -28,12 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        tools:text="TextView"
         android:textColor="@color/colorMineShaft"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/folderNumberOfActivitiesTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/folderImageView" />
 
@@ -41,13 +37,14 @@
         android:id="@+id/folderNumberOfActivitiesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="16dp"
         android:maxWidth="190dp"
+        android:textSize="16dp"
         android:maxLines="1"
-        android:text="TextView"
-        android:textColor="@color/colorBoulder"
+        tools:text="TextView"
+        android:textColor="@color/colorMineShaft"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/folderTitleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/folderImageView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/folderTitleTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

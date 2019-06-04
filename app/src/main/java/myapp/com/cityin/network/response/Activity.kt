@@ -13,6 +13,7 @@ class Activity {
     lateinit var activityId: String
     lateinit var name: String
     lateinit var languages: Array<String>
-    lateinit var category: Category
+    lateinit var travelBandId: String
+    lateinit var category: ActivityCategorie
     lateinit var description: String
 }

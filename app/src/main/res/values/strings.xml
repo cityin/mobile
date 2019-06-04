@@ -8,7 +8,7 @@
     <string name="title_home">Home</string>
     <string name="title_notifications">Notifications</string>
     <string name="activities_list">Liste d\'activités</string>
-    <string name="incoming_list">Whishlist</string>
+    <string name="incoming_list">Mes Whishlist</string>
 
     <string name="pick_time">Séléctionner une heure</string>
     <string name="pick_date">Séléctionner une date</string>
@@ -21,4 +21,8 @@
 
     <!-- Google map Key -->
     <string name="google_maps_key">AIzaSyDCeL6TnER8aANU_t8XxOxRHpATG9oZWuc</string>
+
+    <!-- invitation Spotter -->
+    <string name="placeholder">Email ou @pseudo</string>
+
 </resources>
