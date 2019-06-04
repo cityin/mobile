@@ -28,8 +28,7 @@ class ActivityHighlightedAdapter(val activities: Array<Activity>): RecyclerView.
         val activity = activities.get(position)
 
         holder.view.activityNameTextView.text = activity.name
-        holder.view.activityPriceTextView.text = "${activity.price.toString()}€ par personnes"
-        holder.view.priceActivityTextView.text = "${activity.price}€/pers.s"
+        holder.view.priceActivityTextView.text = "${activity.price}€/pers"
 
         val activityId: String
         activityId = activity.activityId
