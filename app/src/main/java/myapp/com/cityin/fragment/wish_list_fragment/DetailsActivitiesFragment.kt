@@ -48,15 +48,9 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        // Bind data
+
         val imageActivity: ImageView = view!!.findViewById(R.id.imageActivity)
-        val nameText: TextView = view!!.findViewById(R.id.nameActivity)
-        val locationText: TextView = view!!.findViewById(R.id.textTarget)
-        val durationText: TextView = view!!.findViewById(R.id.textTimer)
-        val languageText: TextView = view!!.findViewById(R.id.textLanugage)
         val iconActivity: ImageView = view!!.findViewById(R.id.iconActivity)
-        val enSavoirPlus: ReadMoreTextView = view!!.findViewById(R.id.enSavoirPlusText)
-        val titleIconText: TextView = view!!.findViewById(R.id.titleIcon)
 
         activityId = args.activityId
         travelBandId = args.travelBandId
@@ -71,12 +65,12 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(),OnMapReadyCal
 
               Picasso.get().load(activities.pictures[0]).into(imageActivity)
               Picasso.get().load(activities.office.thumbnailUrl).into(iconActivity)
-              nameText.text = activities.name.toString()
-              locationText.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
-              durationText.text = "${activities.duration.toString()} heure"
-              enSavoirPlus.text = activities.description.toString()
-              languageText.setText(builder.toString())
-              titleIconText.text = "En savoir plus sur \"${activities.office.name.toString()}\""
+              nameActivity.text = activities.name.toString()
+              textTarget.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
+              textTimer.text = "${activities.duration.toString()} heure"
+              enSavoirPlusText.text = activities.description.toString()
+              textLanugage.setText(builder.toString())
+              titleIcon.text = "En savoir plus sur \"${activities.office.name.toString()}\""
         }, {})
 
         btnBack.setOnClickListener {
