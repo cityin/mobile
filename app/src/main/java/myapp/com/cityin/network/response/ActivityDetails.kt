@@ -7,6 +7,7 @@ class ActivityDetails {
     var mark = 0
     var price = 0
     var duration = 0
+    var highlighted = false
 
     lateinit var office: Office
     lateinit var location: Location
