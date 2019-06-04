@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_search.*
+import myapp.com.cityin.CityInApp
 import myapp.com.cityin.R
 import myapp.com.cityin.adapter.ActivityCategoriesAdapter
 import myapp.com.cityin.adapter.ActivityHighlightedAdapter
 import myapp.com.cityin.network.ActivitiesService
 import myapp.com.cityin.network.CategoriesService
+import java.util.*
+import kotlin.concurrent.schedule
 
 class SearchFragment : androidx.fragment.app.Fragment() {
 
@@ -46,17 +49,22 @@ class SearchFragment : androidx.fragment.app.Fragment() {
     }
 
     private fun searchActivities(s: Editable?) {
+        CityInApp.requestQueue.cancelAll(this)
+
         search_results_recycler_view.layoutManager = LinearLayoutManager(context)
 
-        ActivitiesService.searchActivitiesByQueryText(s?.toString(), {
-            activities -> activities.size
-            search_results_recycler_view.adapter = ActivityHighlightedAdapter(activities)
+        Timer().schedule(500
+        ) {
+            ActivitiesService.searchActivitiesByQueryText(s?.toString(), {
+                activities -> activities.size
+                search_results_recycler_view.adapter = ActivityHighlightedAdapter(activities)
 
-            ViewCompat.setNestedScrollingEnabled(search_results_recycler_view, false)
+                ViewCompat.setNestedScrollingEnabled(search_results_recycler_view, false)
 
-        }, {
+            }, {
 
-        })
+            })
+        }
     }
 
     private fun hideViews() {
