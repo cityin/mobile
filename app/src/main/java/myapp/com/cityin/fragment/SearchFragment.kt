@@ -68,17 +68,16 @@ class SearchFragment : androidx.fragment.app.Fragment() {
     }
 
     private fun hideViews() {
-        search_container.visibility = View.GONE
-        search_results.visibility = View.VISIBLE
-
+        search_activity_title.visibility = View.GONE
+        activity_highlights_recycler_view.visibility = View.GONE
+        search_results_recycler_view.visibility = View.VISIBLE
     }
 
     private fun displayViews() {
-        search_container.visibility = View.VISIBLE
-        search_results.visibility = View.GONE
+        search_activity_title.visibility = View.VISIBLE
+        activity_highlights_recycler_view.visibility = View.VISIBLE
+        search_results_recycler_view.visibility = View.GONE
     }
-
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
@@ -87,11 +86,9 @@ class SearchFragment : androidx.fragment.app.Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
         getActivityCategories()
 
         getHighlightedActivities()
-
 
         search_input.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
