@@ -20,7 +20,7 @@ class FoldersService {
                        failure: (VolleyError?) -> Unit) {
             val url = UrlBuilder.travelBand
             val headers = HashMap<String, String>()
-            headers.put("X-Spotter", "f6acb9b8-7445-4585-9dcb-550a5d1103c0")
+            headers.put("X-Spotter", CityInApp.spotterId)
 
             val request = BaseRequest.Builder<Array<Folder>>(Request.Method.GET,
                     url, Array<Folder>::class.java).headers(headers).listener(object: RequestListener<Array<Folder>> {

@@ -7,10 +7,7 @@ import com.android.volley.VolleyError
 import com.neopixl.spitfire.listener.RequestListener
 import com.neopixl.spitfire.request.BaseRequest
 import myapp.com.cityin.CityInApp
-import myapp.com.cityin.network.response.Activities
-import myapp.com.cityin.network.response.Activity
-import myapp.com.cityin.network.response.ActivityDetails
-import myapp.com.cityin.network.response.Office
+import myapp.com.cityin.network.response.*
 
 class ActivitiesService {
     companion object {
@@ -95,6 +92,32 @@ class ActivitiesService {
 
 
             }).build()
+
+            CityInApp.requestQueue.add(request)
+        }
+
+        fun shareActivityToTravelBand(activityId: String,
+                                      travelBandId: String,
+                                      success: (activity: Activity) -> Unit,
+                                      failure: (VolleyError?) -> Unit) {
+
+            val url = UrlBuilder.shareActivity(activityId)
+
+            val body = hashMapOf("travelBandId" to travelBandId)
+
+            val request = BaseRequest.Builder<ShareActivityResponse>(Request.Method.POST, url, ShareActivityResponse::class.java)
+                    .json(body)
+                    .listener(object: RequestListener<ShareActivityResponse> {
+                        override fun onSuccess(request: Request<ShareActivityResponse>, response: NetworkResponse, result: ShareActivityResponse?) {
+                            val response = result?.activity ?: Activity()
+
+                            success(response)
+                        }
+
+                        override fun onFailure(request: Request<ShareActivityResponse>, response: NetworkResponse?, error: VolleyError?) {
+                            failure(error)
+                        }
+                    }).build()
 
             CityInApp.requestQueue.add(request)
         }

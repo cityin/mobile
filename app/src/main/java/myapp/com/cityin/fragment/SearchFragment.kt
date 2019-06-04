@@ -28,7 +28,6 @@ class SearchFragment : androidx.fragment.app.Fragment() {
         }, {
 
         })
-
     }
 
     private fun getHighlightedActivities() {
