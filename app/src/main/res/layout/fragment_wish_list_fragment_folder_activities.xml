@@ -69,7 +69,7 @@
                 android:textSize="16sp"
                 android:textColor="#212121"
                 android:lineSpacingExtra="8sp"
-                tools:text="TextView" />
+                tools:text="@string/Wishlist_folder_activities_number" />
 
             <LinearLayout
                 android:id="@+id/containerItemsSpotter"

@@ -21,9 +21,6 @@ class HomeActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         bottomNav.setupWithNavController(navController)
 
-        val suggestions = arrayOf("edouard","hugo","antoine","jérémy")
-        var adapter = ArrayAdapter(this,R.layout.fragment_invite_spotter,suggestions)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

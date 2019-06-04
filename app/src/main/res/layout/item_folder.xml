@@ -39,7 +39,7 @@
             android:textColor="@color/colorMineShaft"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="Titre" />
+            tools:text="@string/item_folder_title" />
 
         <TextView
             android:id="@+id/folderNumberOfActivitiesTextView"
@@ -49,7 +49,7 @@
             android:textColor="@color/colorMineShaft"
             android:text="@string/activities_list"
             android:layout_marginStart="16dp"
-            tools:text="Prix" />
+            tools:text="@string/item_folder_prix" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

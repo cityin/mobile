@@ -21,7 +21,7 @@
         android:id="@+id/name_spotter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Edouard gachet"
+        tools:text="@string/spotter_auto_complete"
         android:layout_marginStart="25dp"
         app:layout_constraintBottom_toTopOf="@+id/image_spotter"
         app:layout_constraintStart_toEndOf="@+id/image_spotter"

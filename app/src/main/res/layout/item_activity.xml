@@ -46,7 +46,7 @@
                 android:gravity="center"
                 android:layout_gravity="bottom|right"
                 android:padding="8dp"
-                tools:text="cci gorssei"
+                tools:text="@string/item_activity_price"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp" />
 
@@ -64,7 +64,7 @@
             android:textColor="@color/colorMineShaft"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="Titre" />
+            tools:text="@string/item_activity_title" />
 
     </LinearLayout>
 
