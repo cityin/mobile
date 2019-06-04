@@ -60,7 +60,6 @@
                 android:fontFamily="@font/nunito_bold"
                 android:text="@string/activities_highlight_title"
                 android:textColor="@color/colorMineShaft"
-                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
