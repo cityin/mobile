@@ -167,18 +167,13 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
                     android:id="@+id/roundKornerRelativeLayout"
@@ -217,14 +212,13 @@
                     android:id="@+id/enSavoirPlusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/nunito_regular"
                     android:lineHeight="24dp"
                     android:lineSpacingExtra="8sp"
                     android:text="@string/activity_details_description"
                     android:textColor="@color/colorMineShaft"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/roundKornerRelativeLayout" />
 
@@ -257,8 +251,6 @@
                     tools:text="@string/activity_details_about_details_description" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
