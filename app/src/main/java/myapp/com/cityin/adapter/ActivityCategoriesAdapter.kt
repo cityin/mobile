@@ -11,6 +11,12 @@ import myapp.com.cityin.network.response.Category
 
 class ActivityCategoriesAdapter(val categories: Array<Category>): RecyclerView.Adapter<ActivityCategoriesAdapter.ViewHolder>(){
 
+    var listener: CategoryListener? = null
+
+    interface CategoryListener {
+        fun clicked(category: Category)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_category, parent, false)
@@ -27,6 +33,10 @@ class ActivityCategoriesAdapter(val categories: Array<Category>): RecyclerView.A
         val picture = holder.view.travel_band_image_view
 
         holder.view.travel_band_title.text = category.name
+
+        holder.view.setOnClickListener {
+            listener?.clicked(category)
+        }
 
         Picasso.get().load(category.thumbnailUrl).into(picture)
     }

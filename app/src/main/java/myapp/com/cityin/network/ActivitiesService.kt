@@ -73,9 +73,10 @@ class ActivitiesService {
 
         }
 
-        fun searchActivitiesByQueryText(query: String?, success: (activities: Array<Activity>) -> Unit,
+        fun searchActivitiesByQueryText(query: String?, categoryId: String?, success: (activities: Array<Activity>) -> Unit,
                                         failure: (VolleyError?) -> Unit) {
-            val url = UrlBuilder.searchActivities(query)
+            val url = UrlBuilder.searchActivities(query, categoryId)
+            Log.d("test", url)
 
             val request = BaseRequest.Builder<Activities>(Request.Method.GET,
                     url, Activities::class.java).listener(object: RequestListener<Activities> {
