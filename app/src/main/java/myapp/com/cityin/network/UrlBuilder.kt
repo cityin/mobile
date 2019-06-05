@@ -25,16 +25,17 @@ class UrlBuilder {
         fun getCategories(): String {
             return "$baseUrl/categories"
         }
-        fun searchActivities(query: String?, category: String = ""): String {
-            if (query !== null && category.isNotEmpty()) {
-               return "$baseUrl/activities?q=$query&category=$category"
+        fun searchActivities(query: String?, category: String?): String {
+            var url = "$baseUrl/activities?"
+
+            if (query !== null) {
+                url += "q=$query&"
+            }
+            if (category !== null) {
+               url += "category=$category"
             }
 
-            if (category.isNotEmpty()) {
-                return "$baseUrl/activities?category=$category"
-            }
-
-            return "$baseUrl/activities?q=$query"
+            return url
         }
         fun shareActivity(activityId: String): String {
             return "$baseUrl/activities/$activityId/share"

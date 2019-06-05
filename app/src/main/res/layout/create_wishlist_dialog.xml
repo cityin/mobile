@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/nunito_bold"
-        tools:text="@string/create_wishlist_name"
+        android:text="@string/create_wishlist_name"
         android:textColor="@color/colorMineShaft"
         android:textSize="16sp" />
 
