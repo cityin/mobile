@@ -121,6 +121,7 @@
                     <TextView
                         android:id="@+id/item_activity_votable_interested_text"
                         android:layout_width="wrap_content"
+                        android:textSize="14sp"
                         android:layout_height="wrap_content"
                         android:text="Intéressé(e)"/>
 
@@ -144,6 +145,7 @@
                         android:id="@+id/item_activity_votable_non_interested_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="14sp"
                         android:text="Pas intéressé(e)"/>
 
                 </LinearLayout>
@@ -151,6 +153,12 @@
             </LinearLayout>
 
         </RelativeLayout>
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/item_activity_votable_spotter_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 

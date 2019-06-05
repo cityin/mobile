@@ -1,5 +1,6 @@
 package myapp.com.cityin.adapter
 
+import android.content.Context
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,15 +8,53 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_activity.view.*
 import kotlinx.android.synthetic.main.item_activity_votable.view.*
+import myapp.com.cityin.CityInApp
 import myapp.com.cityin.R
 import myapp.com.cityin.fragment.wish_list_fragment.WishListFragmentTravelBandActivitiesDirections
+import myapp.com.cityin.network.VotesService
 import myapp.com.cityin.network.response.Activity
+import myapp.com.cityin.network.response.Spotters
 
-class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Adapter<CustomFolderActivitiesViewHolder>() {
+class FolderActivitiesAdapter(val activities: Array<Activity>) : RecyclerView.Adapter<CustomFolderActivitiesViewHolder>() {
+    private lateinit var context: Context
+
+    private fun setSpotterVoteAction(reactions: MutableList<Spotters>, spotters: Spotters): MutableList<Spotters> {
+        val currentSpotter = reactions.find {
+            it.spotterId == CityInApp.spotterId
+        }
+
+        val spotterIndex = reactions.indexOf(currentSpotter)
+        val newReactionsArray: MutableList<Spotters> = reactions
+
+        if (currentSpotter !== null && spotterIndex >= 0) {
+            newReactionsArray.set(spotterIndex, spotters)
+        } else {
+            newReactionsArray.add(spotters)
+        }
+
+        return newReactionsArray
+    }
+
+    private fun setVoteState(activity: Activity, holder: CustomFolderActivitiesViewHolder) {
+        val arrayOfSpotters = activity.reactions
+
+        val userReaction = arrayOfSpotters.find {
+            it.spotterId == CityInApp.spotterId
+        }
+
+        if (userReaction !== null) {
+            if (userReaction.like) {
+                postInterestedVote(holder)
+            } else {
+                postNonInterestedVote(holder)
+            }
+        }
+    }
 
     private fun postInterestedVote(holder: CustomFolderActivitiesViewHolder) {
         holder.view.item_activity_check_icon.setImageResource(R.drawable.ic_check_green_24dp)
@@ -37,11 +76,13 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_activity_votable, parent, false)
 
+        context = parent.context
+
         return CustomFolderActivitiesViewHolder(cellFlow)
     }
 
     override fun getItemCount(): Int {
-       return activities.count()
+        return activities.count()
     }
 
     override fun onBindViewHolder(holder: CustomFolderActivitiesViewHolder, position: Int) {
@@ -56,12 +97,24 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
 
         Picasso.get().load(activity.pictures[0]).into(cardPicture)
 
+        if (activity.reactions.isNotEmpty()) {
+            setVoteState(activity, holder)
+
+            holder.view.item_activity_votable_spotter_recycler_view.visibility = View.VISIBLE
+
+            holder.view.item_activity_votable_spotter_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+            holder.view.item_activity_votable_spotter_recycler_view.adapter = SpotterVotesAdapter(activity.reactions)
+        } else {
+            holder.view.item_activity_votable_spotter_recycler_view.visibility = View.GONE
+        }
+
         val activityId: String
         activityId = activity.activityId
         val travelBandId: String
         travelBandId = activity.travelBandId
 
-        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivitiesToDetailsActivitiesFragment(activityId,travelBandId)
+        val action = WishListFragmentTravelBandActivitiesDirections.actionWishListFragmentTravelBandActivitiesToDetailsActivitiesFragment(activityId, travelBandId)
 
         holder.view.activityVotableImageView.setOnClickListener {
             it.findNavController().navigate(action)
@@ -69,12 +122,28 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
 
         holder.view.item_activity_check_button.setOnClickListener {
             postInterestedVote(holder)
+
+            VotesService.postInterestVote(travelBandId, activityId, {
+                val newReactions = setSpotterVoteAction(activity.reactions, it)
+
+                holder.view.item_activity_votable_spotter_recycler_view.adapter = SpotterVotesAdapter(newReactions)
+            }, {
+
+            })
         }
 
         holder.view.item_activity_clear_button.setOnClickListener {
             postNonInterestedVote(holder)
+
+            VotesService.postNonInterestVote(travelBandId, activityId, {
+                val newReactions = setSpotterVoteAction(activity.reactions, it)
+
+                holder.view.item_activity_votable_spotter_recycler_view.adapter = SpotterVotesAdapter(newReactions)
+            }, {
+
+            })
         }
     }
 }
 
-class CustomFolderActivitiesViewHolder(val view: View): RecyclerView.ViewHolder(view) {}
+class CustomFolderActivitiesViewHolder(val view: View) : RecyclerView.ViewHolder(view) {}

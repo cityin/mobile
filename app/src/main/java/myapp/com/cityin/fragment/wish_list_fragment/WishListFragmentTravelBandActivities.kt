@@ -11,9 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_wish_list_fragment_folder_activities.*
+import kotlinx.android.synthetic.main.item_activity_votable.*
 import myapp.com.cityin.R
 import myapp.com.cityin.adapter.FolderActivitiesAdapter
 import myapp.com.cityin.adapter.SpotterItemsAdapter
+import myapp.com.cityin.adapter.SpotterVotesAdapter
 import myapp.com.cityin.network.ActivitiesService
 import myapp.com.cityin.network.response.Spotters
 
