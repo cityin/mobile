@@ -21,7 +21,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="430dp">
+                android:layout_height="410dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -43,8 +43,10 @@
                         android:id="@+id/relativeLayout"
                         android:layout_width="match_parent"
                         android:layout_height="600dp"
+                        android:layout_marginTop="32dp"
                         android:background="@drawable/background_details_activity"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,7 +87,7 @@
                         android:id="@+id/imageTimer"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="16dp"
                         android:src="@drawable/alarm"
                         app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +98,7 @@
                         android:id="@+id/imageLanguage"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="16dp"
                         android:src="@drawable/language"
                         app:layout_constraintStart_toStartOf="parent"
@@ -107,16 +109,16 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="215dp"
                         android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/nunito_bold"
-                        android:lineHeight="22dp"
+                        android:lineSpacingExtra="7sp"
                         android:paddingRight="26dp"
                         android:textColor="@android:color/background_light"
                         android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/imageTarget"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
                         tools:text="@string/activity_details_name" />
 
                     <TextView
@@ -167,18 +169,13 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
                     android:id="@+id/roundKornerRelativeLayout"
@@ -217,14 +214,13 @@
                     android:id="@+id/enSavoirPlusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/nunito_regular"
                     android:lineHeight="24dp"
                     android:lineSpacingExtra="8sp"
                     android:text="@string/activity_details_description"
                     android:textColor="@color/colorMineShaft"
                     android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/roundKornerRelativeLayout" />
 
@@ -257,8 +253,6 @@
                     tools:text="@string/activity_details_about_details_description" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

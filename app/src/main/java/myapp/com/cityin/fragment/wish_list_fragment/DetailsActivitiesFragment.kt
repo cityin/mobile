@@ -2,6 +2,7 @@ package myapp.com.cityin.fragment.wish_list_fragment
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,20 +54,21 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
         travelBandId = args.travelBandId
 
         getDetailsActivitiesByTravelBand(activityId, {
-              activities -> activities
+            activities -> activities
 
             val builder = StringBuilder()
             for (details in activities.languages) {
                 builder.append(details + ", ")
             }
 
-              Picasso.get().load(activities.pictures[0]).into(imageActivity)
-              Picasso.get().load(activities.office.thumbnailUrl).into(iconActivity)
 
+            Picasso.get().load(activities.pictures[0]).into(imageActivity)
+            Picasso.get().load(activities.office.thumbnailUrl).into(iconActivity)
             nameActivity.text = activities.name
             textTarget.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
             textTimer.text = "${activities.duration.toString()} heure"
-            enSavoirPlusText.text = activities.description.toString()
+            enSavoirPlusText.text = activities.office.about.toString()
+            descriptionActivity.text = activities.description.toString()
             textLanugage.setText(builder.toString())
             titleIcon.text = "En savoir plus sur \"${activities.office.name.toString()}\""
             fragment_details_activity_sticky_price_text.text = "${activities.price}€ / personne"

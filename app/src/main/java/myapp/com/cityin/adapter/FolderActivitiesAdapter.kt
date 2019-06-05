@@ -1,5 +1,6 @@
 package myapp.com.cityin.adapter
 
+
 import android.content.Context
 import android.graphics.Color
 import android.util.Log
@@ -72,6 +73,9 @@ class FolderActivitiesAdapter(val activities: Array<Activity>) : RecyclerView.Ad
         holder.view.item_activity_votable_non_interested_text.setTextColor(Color.parseColor("#f53535"))
     }
 
+val categoryIconsTwo = hashMapOf("party" to R.drawable.ic_local_bar_white_20dp, "sport" to R.drawable.ic_pool_white_20dp, "culture" to R.drawable.ic_culture_white_20dp)
+class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Adapter<CustomFolderActivitiesViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomFolderActivitiesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_activity_votable, parent, false)
@@ -88,10 +92,14 @@ class FolderActivitiesAdapter(val activities: Array<Activity>) : RecyclerView.Ad
     override fun onBindViewHolder(holder: CustomFolderActivitiesViewHolder, position: Int) {
         val activity = activities.get(position)
 
-        holder.view.activityVotableNameTextView.text = activity.name
-        holder.view.priceVotableActivityTextView.text = "${activity.price}€/pers"
+        holder.view.activityNameTextView.text = activity.name
+        holder.view.priceActivityTextView.text = "${activity.price}€/pers"
+        holder.view.category_name_activity.text = activity.category?.name.capitalize()
 
-        holder.view.category_votable_icon_name.visibility = View.INVISIBLE
+        val categoryIcon = categoryIconsTwo[activity.category.name] ?: 0
+        if (categoryIcon != 0) {
+            holder.view.category_icon_activity.setImageResource(categoryIcon)
+        }
 
         val cardPicture = holder.view.activityVotableImageView
 
