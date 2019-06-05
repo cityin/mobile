@@ -1,24 +1,20 @@
 package myapp.com.cityin.fragment.wish_list_fragment
 
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.borjabravo.readmoretextview.ReadMoreTextView
 import com.google.android.gms.maps.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_details_activities.*
 import myapp.com.cityin.R
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_home.*
 import myapp.com.cityin.fragment.activity_fragment.ShareActivityFragment
 import myapp.com.cityin.network.ActivitiesService.Companion.getDetailsActivitiesByTravelBand
 import java.lang.StringBuilder
@@ -29,19 +25,20 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
     lateinit var activityId: String
     lateinit var travelBandId: String
     private lateinit var mMap: GoogleMap
-    lateinit var langue: ArrayList<String>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private fun setBottomAddActivityDialog() {
+        val bottomSheet = ShareActivityFragment(activityId)
+        bottomSheet.setTargetFragment(this, 0)
+        bottomSheet.show(fragmentManager, "ShareActivityBottonSheetDialog")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_details_activities, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
@@ -68,22 +65,24 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
             Picasso.get().load(activities.pictures[0]).into(imageActivity)
             Picasso.get().load(activities.office.thumbnailUrl).into(iconActivity)
 
-            nameActivity.text = activities.name.toString()
+            nameActivity.text = activities.name
             textTarget.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
             textTimer.text = "${activities.duration.toString()} heure"
             enSavoirPlusText.text = activities.office.about.toString()
             descriptionActivity.text = activities.description.toString()
             textLanugage.setText(builder.toString())
             titleIcon.text = "En savoir plus sur \"${activities.office.name.toString()}\""
+            fragment_details_activity_sticky_price_text.text = "${activities.price}€ / personne"
         }, {
         })
 
 
         btnAddSpotters.setOnClickListener {
-            val bottomSheet = ShareActivityFragment(activityId)
-            bottomSheet.setTargetFragment(this, 0)
-            bottomSheet.show(fragmentManager, "ShareActivityBottonSheetDialog")
+            setBottomAddActivityDialog()
+        }
 
+        fragment_details_activity_sticky_add_button.setOnClickListener {
+            setBottomAddActivityDialog()
         }
 
         btnBack.setOnClickListener {
@@ -91,7 +90,6 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
         }
 
     }
-
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap

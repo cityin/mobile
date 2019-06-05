@@ -32,16 +32,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activities_list_title"></androidx.recyclerview.widget.RecyclerView>
 
-    <ImageView
-        android:id="@+id/add_wishlist_icon"
-        app:layout_constraintTop_toTopOf="@+id/activities_list_title"
-        android:layout_marginTop="4dp"
-        app:layout_constraintRight_toRightOf="parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button_wishlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
         android:layout_marginRight="16dp"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_add_black_24dp" />
-
+        android:layout_marginBottom="32dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_white_20dp"
+        android:tint="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:rippleColor="@color/colorCta" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

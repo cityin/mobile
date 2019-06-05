@@ -31,7 +31,7 @@ class WishlistFragment : androidx.fragment.app.Fragment(), CreateWishlistDialog.
         loadTravelBands()
 
         // set up click on add
-        add_wishlist_icon.setOnClickListener {
+        floating_action_button_wishlist.setOnClickListener {
             val dialog = CreateWishlistDialog()
             dialog.setTargetFragment(this, 0)
             dialog.show(fragmentManager, "CreateWishlistDialog")
@@ -54,5 +54,4 @@ class WishlistFragment : androidx.fragment.app.Fragment(), CreateWishlistDialog.
         // Reload travel bands to fetch newly created one
         loadTravelBands()
     }
-
 }
