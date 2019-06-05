@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activityLayoutCardVotable"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+                android:id="@+id/roundKornerRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                app:corner_radius="10dp">
+
+                <ImageView
+                    android:id="@+id/activityVotableImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
+
+            </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/category_votable_icon_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
+                android:background="@drawable/box2"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/category_votable_icon_activity"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="8dp"
+                    app:srcCompat="@drawable/alarm" />
+
+                <TextView
+                    android:id="@+id/category_name_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    tools:text="@string/item_activity_price" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/priceVotableActivityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/box2"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                tools:text="@string/item_activity_price" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/activityVotableNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/nunito_bold"
+            android:maxLines="2"
+            android:textColor="@color/colorMineShaft"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="@string/item_activity_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+
+                <LinearLayout
+                    android:id="@+id/item_activity_check_button"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="24dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/item_activity_check_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_check_grey_24dp" />
+
+                    <TextView
+                        android:id="@+id/item_activity_votable_interested_text"
+                        android:layout_width="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"
+                        android:text="Intéressé(e)"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/item_activity_clear_button"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/item_activity_clear_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_clear_grey_24dp" />
+
+                    <TextView
+                        android:id="@+id/item_activity_votable_non_interested_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="Pas intéressé(e)"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/item_activity_votable_spotter_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

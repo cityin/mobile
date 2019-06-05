@@ -24,7 +24,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDCeL6TnER8aANU_t8XxOxRHpATG9oZWuc" />
 
-        <activity android:name=".HomeActivity">
+        <activity
+            android:name=".HomeActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -16,4 +16,5 @@ class Activity {
     lateinit var travelBandId: String
     lateinit var category: ActivityCategorie
     lateinit var description: String
+    lateinit var reactions: MutableList<Spotters>
 }
