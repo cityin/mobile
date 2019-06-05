@@ -15,10 +15,14 @@ import myapp.com.cityin.adapter.ActivityCategoriesAdapter
 import myapp.com.cityin.adapter.ActivityHighlightedAdapter
 import myapp.com.cityin.network.ActivitiesService
 import myapp.com.cityin.network.CategoriesService
+import myapp.com.cityin.network.response.Category
 import java.util.*
 import kotlin.concurrent.schedule
 
-class SearchFragment : androidx.fragment.app.Fragment() {
+class SearchFragment : androidx.fragment.app.Fragment(), ActivityCategoriesAdapter.CategoryListener {
+
+    var query = ""
+    var categoryId = ""
 
 
     private fun getActivityCategories() {
@@ -27,7 +31,9 @@ class SearchFragment : androidx.fragment.app.Fragment() {
 
         CategoriesService.getActivityCategories({
             categories -> categories.size
-            activity_categories_recycler_view.adapter = ActivityCategoriesAdapter(categories)
+            val adapter = ActivityCategoriesAdapter(categories)
+            adapter.listener = this
+            activity_categories_recycler_view.adapter = adapter
         }, {
 
         })
@@ -47,17 +53,30 @@ class SearchFragment : androidx.fragment.app.Fragment() {
 
     }
 
-    private fun searchActivities(s: Editable?) {
+    private fun searchActivities() {
         CityInApp.requestQueue.cancelAll(this)
 
-        search_results_recycler_view.layoutManager = LinearLayoutManager(context)
+        var q: String? = null
+        if (!query.isEmpty()) {
+            q = query
+        }
+
+        var category: String? = null
+        if (!categoryId.isEmpty()) {
+            category = categoryId
+        }
 
         Timer().schedule(500
         ) {
-            ActivitiesService.searchActivitiesByQueryText(s?.toString(), {
+            ActivitiesService.searchActivitiesByQueryText(q, category, {
                 activities -> activities.size
                 search_results_recycler_view.adapter = ActivityHighlightedAdapter(activities)
 
+                if (categoryId === "" && query === "") {
+                    displayViews()
+                } else {
+                    hideViews()
+                }
                 ViewCompat.setNestedScrollingEnabled(search_results_recycler_view, false)
 
             }, {
@@ -85,6 +104,8 @@ class SearchFragment : androidx.fragment.app.Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        search_results_recycler_view.layoutManager = LinearLayoutManager(context)
+
         getActivityCategories()
 
         getHighlightedActivities()
@@ -92,14 +113,12 @@ class SearchFragment : androidx.fragment.app.Fragment() {
         search_input.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (search_input.text.isEmpty()) {
-
-                    displayViews()
-
+                    query = ""
                 } else {
-                    hideViews()
-
-                    searchActivities(s)
+                    query = s?.toString() ?: ""
                 }
+
+                searchActivities()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -107,5 +126,14 @@ class SearchFragment : androidx.fragment.app.Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
         })
+    }
+
+    override fun clicked(category: Category) {
+        if (categoryId == category.categoryId) {
+            categoryId = ""
+        } else {
+            categoryId = category.categoryId
+        }
+        searchActivities()
     }
 }

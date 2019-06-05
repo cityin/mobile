@@ -10,4 +10,5 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorDarkGray">#d8d8d8</color>
     <color name="colorDanger">#f53535</color>
+    <color name="colorCta">#ff0266</color>
 </resources>
