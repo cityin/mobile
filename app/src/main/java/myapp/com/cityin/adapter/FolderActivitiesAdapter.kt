@@ -136,6 +136,10 @@ class FolderActivitiesAdapter(val activities: Array<Activity>) : RecyclerView.Ad
             VotesService.postInterestVote(travelBandId, activityId, {
                 val newReactions = setSpotterVoteAction(activity.reactions, it)
 
+                holder.view.item_activity_votable_spotter_recycler_view.visibility = View.VISIBLE
+
+                holder.view.item_activity_votable_spotter_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                
                 holder.view.item_activity_votable_spotter_recycler_view.adapter = SpotterVotesAdapter(newReactions)
             }, {
 
@@ -147,6 +151,10 @@ class FolderActivitiesAdapter(val activities: Array<Activity>) : RecyclerView.Ad
 
             VotesService.postNonInterestVote(travelBandId, activityId, {
                 val newReactions = setSpotterVoteAction(activity.reactions, it)
+
+                holder.view.item_activity_votable_spotter_recycler_view.visibility = View.VISIBLE
+
+                holder.view.item_activity_votable_spotter_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
                 holder.view.item_activity_votable_spotter_recycler_view.adapter = SpotterVotesAdapter(newReactions)
             }, {
