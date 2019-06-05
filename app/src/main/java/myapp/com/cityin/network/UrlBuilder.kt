@@ -40,5 +40,8 @@ class UrlBuilder {
         fun shareActivity(activityId: String): String {
             return "$baseUrl/activities/$activityId/share"
         }
+        fun reactionRoutes(travelBandId: String, activityId: String): String {
+            return "$baseUrl/travel-bands/$travelBandId/activities/$activityId/reactions"
+        }
     }
 }
