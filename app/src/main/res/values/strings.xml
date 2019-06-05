@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Spotter</string>
+    <string name="app_name">Shrike</string>
     <string name="title_search">Découvrir</string>
     <string name="title_favorite">Whishlist</string>
     <string name="title_incoming">A venir</string>
@@ -8,7 +8,7 @@
     <string name="title_home">Home</string>
     <string name="title_notifications">Notifications</string>
     <string name="activities_list">Liste d\'activités</string>
-    <string name="incoming_list">Mes Whishlist</string>
+    <string name="incoming_list">Mes Whishlists</string>
 
     <!-- Spotter auto Complete -->
     <string name="spotter_auto_complete">nom du spotter</string>
