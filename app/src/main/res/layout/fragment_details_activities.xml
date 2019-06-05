@@ -283,4 +283,33 @@
 
     </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:id="@+id/fragment_details_activity_sticky_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            tools:text="28€ / personne"
+            android:gravity="center_vertical"/>
+        
+        <Button
+            android:id="@+id/fragment_details_activity_sticky_add_button"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/box"
+            android:textColor="@color/colorWhite"
+            android:text="Enregister" />
+    </RelativeLayout>
+
 </RelativeLayout>
