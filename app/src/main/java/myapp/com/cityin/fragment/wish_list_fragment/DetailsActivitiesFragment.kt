@@ -2,6 +2,7 @@ package myapp.com.cityin.fragment.wish_list_fragment
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,11 +61,9 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
                 builder.append(details + ", ")
             }
 
-            Log.d("lastIndex", "${builder.lastIndex.toString()}")
 
             Picasso.get().load(activities.pictures[0]).into(imageActivity)
             Picasso.get().load(activities.office.thumbnailUrl).into(iconActivity)
-
             nameActivity.text = activities.name
             textTarget.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
             textTimer.text = "${activities.duration.toString()} heure"
