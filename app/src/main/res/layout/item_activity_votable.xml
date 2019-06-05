@@ -55,7 +55,7 @@
                     app:srcCompat="@drawable/alarm" />
 
                 <TextView
-                    android:id="@+id/category_name_activity"
+                    android:id="@+id/category_votable_name_activity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

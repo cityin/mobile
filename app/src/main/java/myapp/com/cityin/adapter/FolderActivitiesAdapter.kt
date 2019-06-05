@@ -22,6 +22,11 @@ import myapp.com.cityin.network.response.Activity
 import myapp.com.cityin.network.response.Spotters
 
 class FolderActivitiesAdapter(val activities: Array<Activity>) : RecyclerView.Adapter<CustomFolderActivitiesViewHolder>() {
+    val categoryIconsTwo = hashMapOf("loisir" to R.drawable.ic_local_bar_white_20dp,
+            "sport" to R.drawable.ic_pool_white_20dp,
+            "culture" to R.drawable.ic_culture_white_20dp,
+            "exploration" to R.drawable.ic_map_white_20dp)
+
     private lateinit var context: Context
 
     private fun setSpotterVoteAction(reactions: MutableList<Spotters>, spotters: Spotters): MutableList<Spotters> {
@@ -73,9 +78,6 @@ class FolderActivitiesAdapter(val activities: Array<Activity>) : RecyclerView.Ad
         holder.view.item_activity_votable_non_interested_text.setTextColor(Color.parseColor("#f53535"))
     }
 
-val categoryIconsTwo = hashMapOf("party" to R.drawable.ic_local_bar_white_20dp, "sport" to R.drawable.ic_pool_white_20dp, "culture" to R.drawable.ic_culture_white_20dp)
-class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Adapter<CustomFolderActivitiesViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomFolderActivitiesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellFlow = layoutInflater.inflate(R.layout.item_activity_votable, parent, false)
@@ -92,13 +94,13 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
     override fun onBindViewHolder(holder: CustomFolderActivitiesViewHolder, position: Int) {
         val activity = activities.get(position)
 
-        holder.view.activityNameTextView.text = activity.name
-        holder.view.priceActivityTextView.text = "${activity.price}€/pers"
-        holder.view.category_name_activity.text = activity.category?.name.capitalize()
+        holder.view.activityVotableNameTextView.text = activity.name
+        holder.view.priceVotableActivityTextView.text = "${activity.price}€/pers"
+        holder.view.category_votable_name_activity.text = activity.category?.name.capitalize()
 
         val categoryIcon = categoryIconsTwo[activity.category.name] ?: 0
         if (categoryIcon != 0) {
-            holder.view.category_icon_activity.setImageResource(categoryIcon)
+            holder.view.category_votable_icon_activity.setImageResource(categoryIcon)
         }
 
         val cardPicture = holder.view.activityVotableImageView
@@ -154,4 +156,7 @@ class FolderActivitiesAdapter(val activities: Array<Activity>): RecyclerView.Ada
     }
 }
 
-class CustomFolderActivitiesViewHolder(val view: View) : RecyclerView.ViewHolder(view) {}
+
+class CustomFolderActivitiesViewHolder(val view: View): RecyclerView.ViewHolder(view) {
+}
+

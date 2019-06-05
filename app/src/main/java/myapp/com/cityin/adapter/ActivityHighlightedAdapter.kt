@@ -11,7 +11,10 @@ import myapp.com.cityin.R
 import myapp.com.cityin.fragment.SearchFragmentDirections
 import myapp.com.cityin.network.response.Activity
 
-val categoryIcons = hashMapOf("party" to R.drawable.ic_local_bar_white_20dp, "sport" to R.drawable.ic_pool_white_20dp, "culture" to R.drawable.ic_culture_white_20dp)
+val categoryIcons = hashMapOf("loisir" to R.drawable.ic_local_bar_white_20dp,
+        "sport" to R.drawable.ic_pool_white_20dp,
+        "culture" to R.drawable.ic_culture_white_20dp,
+        "exploration" to R.drawable.ic_map_white_20dp)
 
 class ActivityHighlightedAdapter(val activities: Array<Activity>): RecyclerView.Adapter<ViewHolder>() {
 
