@@ -69,8 +69,9 @@ class DetailsActivitiesFragment : androidx.fragment.app.Fragment(), OnMapReadyCa
             nameActivity.text = activities.name.toString()
             textTarget.text = "${activities.location.street.toString()}, ${activities.location.postalCode.toString()} ${activities.location.city.toString()}"
             textTimer.text = "${activities.duration.toString()} heure"
-            enSavoirPlusText.text = activities.description.toString()
+            //enSavoirPlusText.text = activities.description.toString()
             textLanugage.setText(builder.toString())
+            descriptionActivity.text = activities.description.toString()
             titleIcon.text = "En savoir plus sur \"${activities.office.name.toString()}\""
         }, {
         })
